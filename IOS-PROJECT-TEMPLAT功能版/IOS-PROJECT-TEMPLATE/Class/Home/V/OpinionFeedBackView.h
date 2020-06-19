@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 @interface OpinionFeedBackView : UIView
 @property(nonatomic,assign)id<OpinionViewDelegate>delegate;
-@property(nonatomic,weak)IBOutlet UITextView * feedView;
+@property(nonatomic,strong) UITextView * feedView;
 @end
 
 NS_ASSUME_NONNULL_END

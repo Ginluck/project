@@ -136,6 +136,8 @@
 #define JS_SIGNIN_URL @"appQd/appAddSignIn"
 //领取额外奖励
 #define JS_GETREWARD_URL @"appQd/appAddAdditionalReward"
+//查询是否反馈意见
+#define JS_ISFEEDBACK_URL @"userApp/selectOpinionIsExist"
 
 
 #endif /* APIString_h */
