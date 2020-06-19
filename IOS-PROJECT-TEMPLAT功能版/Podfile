@@ -1,0 +1,39 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'IOS-PROJECT-TEMPLATE' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+  pod 'YCXMenu', '~> 0.0.11'
+  pod 'Reachability'
+  pod 'AFNetworking', '~> 3.2.1'
+  pod 'MJRefresh'
+  pod 'SDWebImage', '~>4.0'
+    pod 'SDWebImage/GIF'
+  pod 'Masonry'
+  pod 'IQKeyboardManager'
+  pod 'SVProgressHUD'
+  pod 'MJExtension'
+  pod 'DZNEmptyDataSet' #空白数据集显示
+  pod 'WMPageController' #内容分类列表视图
+  pod 'DTCoreText' #IOS Html富文本渲染方式
+  pod 'pop'
+  pod 'YYModel'
+  pod 'SDCycleScrollView' 
+  pod 'TencentMap-SDK'
+  pod 'Hyphenate'
+  pod 'JPush'
+  pod 'FSCalendar', '~> 2.7.9'
+  # Pods for IOS-PROJECT-TEMPLATE
+
+  target 'IOS-PROJECT-TEMPLATETests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'IOS-PROJECT-TEMPLATEUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="187" id="KGk-i7-Jjw" customClass="TaoCanCell">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="187"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="370" height="186.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="木材" translatesAutoresizingMaskIntoConstraints="NO" id="6Nm-G0-iaN">
+                        <rect key="frame" x="0.0" y="0.0" width="370" height="186.5"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="商品占位图" translatesAutoresizingMaskIntoConstraints="NO" id="AiV-G2-Iti">
+                        <rect key="frame" x="16" y="33.5" width="150" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="Lag-VP-Ojb"/>
+                            <constraint firstAttribute="height" constant="120" id="ndc-if-Kn3"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="套餐名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5P-Vm-gAT">
+                        <rect key="frame" x="207" y="33" width="74" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="套餐描述" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kV-qk-qSg">
+                        <rect key="frame" x="211" y="83.5" width="66" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOT-fQ-tSL">
+                        <rect key="frame" x="209" y="123" width="70" height="30"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.67450980390000004" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" title=" 查看详情 ">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="iOT-fQ-tSL" firstAttribute="centerX" secondItem="0kV-qk-qSg" secondAttribute="centerX" id="7G3-rN-AEk"/>
+                    <constraint firstItem="6Nm-G0-iaN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Gow-BX-qnW"/>
+                    <constraint firstItem="iOT-fQ-tSL" firstAttribute="top" secondItem="0kV-qk-qSg" secondAttribute="bottom" constant="19.5" id="Jii-0c-UaM"/>
+                    <constraint firstAttribute="bottom" secondItem="6Nm-G0-iaN" secondAttribute="bottom" id="MVu-PP-UwE"/>
+                    <constraint firstItem="0kV-qk-qSg" firstAttribute="leading" secondItem="AiV-G2-Iti" secondAttribute="trailing" constant="45" id="PA5-5p-fqO"/>
+                    <constraint firstAttribute="trailing" secondItem="6Nm-G0-iaN" secondAttribute="trailing" id="TOM-zj-pWp"/>
+                    <constraint firstItem="h5P-Vm-gAT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="33" id="USd-FM-64P"/>
+                    <constraint firstItem="h5P-Vm-gAT" firstAttribute="leading" secondItem="AiV-G2-Iti" secondAttribute="trailing" constant="41" id="Zsh-g2-ttS"/>
+                    <constraint firstItem="6Nm-G0-iaN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cuV-kN-bir"/>
+                    <constraint firstItem="AiV-G2-Iti" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="jVi-co-C95"/>
+                    <constraint firstItem="AiV-G2-Iti" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qU5-Q7-ZPt"/>
+                    <constraint firstItem="0kV-qk-qSg" firstAttribute="centerY" secondItem="AiV-G2-Iti" secondAttribute="centerY" id="zGn-Vd-Qhb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <point key="canvasLocation" x="97.599999999999994" y="202.84857571214394"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="商品占位图" width="100" height="100"/>
+        <image name="木材" width="250" height="125"/>
+    </resources>
+</document>

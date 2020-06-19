@@ -1,0 +1,134 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - DTCoreText (1.6.23):
+    - DTCoreText/Core (= 1.6.23)
+    - DTFoundation/Core (~> 1.7.5)
+    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
+    - DTFoundation/DTHTMLParser (~> 1.7.5)
+    - DTFoundation/UIKit (~> 1.7.5)
+  - DTCoreText/Core (1.6.23):
+    - DTFoundation/Core (~> 1.7.5)
+    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
+    - DTFoundation/DTHTMLParser (~> 1.7.5)
+    - DTFoundation/UIKit (~> 1.7.5)
+  - DTFoundation/Core (1.7.14)
+  - DTFoundation/DTAnimatedGIF (1.7.14)
+  - DTFoundation/DTHTMLParser (1.7.14):
+    - DTFoundation/Core
+  - DTFoundation/UIKit (1.7.14):
+    - DTFoundation/Core
+  - DZNEmptyDataSet (1.8.1)
+  - FLAnimatedImage (1.0.12)
+  - FSCalendar (2.7.9)
+  - Hyphenate (3.6.8)
+  - IQKeyboardManager (6.5.5)
+  - JCore (2.3.0)
+  - JPush (3.3.3):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - Masonry (1.1.0)
+  - MJExtension (3.2.1)
+  - MJRefresh (3.4.3)
+  - pop (1.0.12)
+  - Reachability (3.2)
+  - SDCycleScrollView (1.75):
+    - SDWebImage (>= 4.0.0)
+  - SDWebImage (4.4.8):
+    - SDWebImage/Core (= 4.4.8)
+  - SDWebImage/Core (4.4.8)
+  - SDWebImage/GIF (4.4.8):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
+  - SVProgressHUD (2.2.5)
+  - TencentMap-SDK (4.3.2)
+  - WMPageController (2.5.2)
+  - YCXMenu (0.0.11)
+  - YYModel (1.0.4)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.2.1)
+  - DTCoreText
+  - DZNEmptyDataSet
+  - FSCalendar (~> 2.7.9)
+  - Hyphenate
+  - IQKeyboardManager
+  - JPush
+  - Masonry
+  - MJExtension
+  - MJRefresh
+  - pop
+  - Reachability
+  - SDCycleScrollView
+  - SDWebImage (~> 4.0)
+  - SDWebImage/GIF
+  - SVProgressHUD
+  - TencentMap-SDK
+  - WMPageController
+  - YCXMenu (~> 0.0.11)
+  - YYModel
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - DTCoreText
+    - DTFoundation
+    - DZNEmptyDataSet
+    - FLAnimatedImage
+    - FSCalendar
+    - Hyphenate
+    - IQKeyboardManager
+    - JCore
+    - JPush
+    - Masonry
+    - MJExtension
+    - MJRefresh
+    - pop
+    - Reachability
+    - SDCycleScrollView
+    - SDWebImage
+    - SVProgressHUD
+    - TencentMap-SDK
+    - WMPageController
+    - YCXMenu
+    - YYModel
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  DTCoreText: 67023bb51b26711d5f640c851f4845aea14c24c9
+  DTFoundation: 25aa19bb7c6e225b1dfae195604fb8cf1da0ab4c
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+  Hyphenate: 7f1e47f7c1132d5a6e323330f9a6eeec9338bc76
+  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
+  JCore: 7fb83e1e75e00df37e9e1e33f3adae79182ad57c
+  JPush: 61b3dc8c2bdefb7c48e7ca283f9fe42e71bfe063
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 635f2c663dcb1bf76fa4b715b2570a5710aec545
+  MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
+  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TencentMap-SDK: 385e59541a65ea6ed1a38ae08f29d775ccf6e0a8
+  WMPageController: 0c7624d2b48e4f1ab92371688cf6744ed701575d
+  YCXMenu: 6003bcd20d8ac72e3eb3c442c97ed21948c6dc1f
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
+
+PODFILE CHECKSUM: a4f9ab4c8272dd8c9f6e1dde170ca15378ee84c1
+
+COCOAPODS: 1.8.4

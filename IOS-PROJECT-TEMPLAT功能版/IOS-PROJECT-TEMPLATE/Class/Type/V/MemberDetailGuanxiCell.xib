@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MemberDetailGuanxiCell">
+            <rect key="frame" x="0.0" y="0.0" width="287" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="80"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="临时占位图" translatesAutoresizingMaskIntoConstraints="NO" id="eiY-1A-nRq">
+                        <rect key="frame" x="12" y="10" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="8RX-2H-SaF"/>
+                            <constraint firstAttribute="width" constant="60" id="ak6-uO-UE1"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsx-to-RtP">
+                        <rect key="frame" x="81" y="12" width="31" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓氏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PR-6u-euM">
+                        <rect key="frame" x="81" y="53" width="198" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Vsx-to-RtP" firstAttribute="leading" secondItem="eiY-1A-nRq" secondAttribute="trailing" constant="9" id="4Qk-tH-u47"/>
+                <constraint firstAttribute="trailing" secondItem="7PR-6u-euM" secondAttribute="trailing" constant="8" id="DAG-eo-2eI"/>
+                <constraint firstItem="eiY-1A-nRq" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Tfm-90-0rT"/>
+                <constraint firstItem="eiY-1A-nRq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="f1l-EY-7Fz"/>
+                <constraint firstItem="7PR-6u-euM" firstAttribute="leading" secondItem="eiY-1A-nRq" secondAttribute="trailing" constant="9" id="q5x-ht-dmH"/>
+                <constraint firstItem="Vsx-to-RtP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="sj2-5M-LES"/>
+                <constraint firstAttribute="bottom" secondItem="7PR-6u-euM" secondAttribute="bottom" constant="12" id="vWl-4H-DgN"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="287" height="135"/>
+            <connections>
+                <outlet property="desc" destination="7PR-6u-euM" id="R48-YF-Qx7"/>
+                <outlet property="headImage" destination="eiY-1A-nRq" id="7FU-GT-6zd"/>
+                <outlet property="name" destination="Vsx-to-RtP" id="g15-9W-kLF"/>
+            </connections>
+            <point key="canvasLocation" x="18.399999999999999" y="169.11544227886057"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="临时占位图" width="83" height="87"/>
+    </resources>
+</document>

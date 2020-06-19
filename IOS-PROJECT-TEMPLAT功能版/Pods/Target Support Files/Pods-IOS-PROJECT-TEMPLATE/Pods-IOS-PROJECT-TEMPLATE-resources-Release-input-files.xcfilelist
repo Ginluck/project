@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-IOS-PROJECT-TEMPLATE/Pods-IOS-PROJECT-TEMPLATE-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/DTCoreText/Resources.bundle
+${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
+${PODS_ROOT}/TencentMap-SDK/sdk/QMapKit.framework/QMapKit.bundle
