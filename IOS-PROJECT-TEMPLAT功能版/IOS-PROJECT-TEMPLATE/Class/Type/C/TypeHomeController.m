@@ -105,10 +105,10 @@
         if (!self.oView.feedView.text.length) {
             ShowMessage(@"请输入反馈意见");return;
         }
-        [RequestHelp POST:JS_FEEDBACK_URL parameters:@{@"content":self.oView.feedView.text,@"userUserId":model.id} success:^(id result) {
+        [RequestHelp POST:JS_FEEDBACK_URL parameters:@{@"content":self.oView.feedView.text,@"userUserId":model.id,@"type":@"1"} success:^(id result) {
             DLog(@"%@",result);
             ShowMessage(@"反馈成功");
-            NSDictionary * dic=@{@"launchTime":[UIUtils getCurrentTimes],@"isOut":@"1"};
+            NSDictionary * dic=@{@"launchTime":[UIUtils getCurrentTimes]};
             [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"launch_Dic"];
             [self.oView removeFromSuperview];
             [self.bgButton removeFromSuperview];
@@ -118,7 +118,7 @@
     }
     else
     {
-        NSDictionary * dic=@{@"launchTime":[UIUtils getCurrentTimes],@"isOut":@"0"};
+        NSDictionary * dic=@{@"launchTime":[UIUtils getCurrentTimes]};
         [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"launch_Dic"];
         [self.oView removeFromSuperview];
         [self.bgButton removeFromSuperview];
@@ -240,10 +240,6 @@
 {
     //      NSDictionary * launchDic =@{@"launchTime":launchTime,@"isOut":@"0"};
     NSDictionary * dic =[[NSUserDefaults standardUserDefaults]objectForKey:@"launch_Dic"];
-    if ([dic[@"isOut"] isEqualToString:@"1"])
-    {
-        return;
-    }
     //    NSCalendarUnitYear| NSCalendarUnitMonth| NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|
     NSString  * oldTime =dic[@"launchTime"];
     NSString *  nTime =[UIUtils getCurrentTimes];
@@ -255,9 +251,25 @@
     NSDateComponents *d = [cal components:unitFlags fromDate:oldDate toDate:nDate options:0];
     if ([d second]>15)
     {
-        [[[UIApplication sharedApplication]keyWindow]addSubview:self.bgButton];
-        [self.bgButton addSubview:self.oView];
+        [self requestData];
     }
+}
+
+
+-(void)requestData
+{
+    [RequestHelp POST:JS_ISFEEDBACK_URL parameters:@{} success:^(id result) {
+        NSInteger value =[result integerValue];
+        if (value>0)
+        {
+            return ;
+        }
+        else
+        {
+            [[[UIApplication sharedApplication]keyWindow]addSubview:self.bgButton];
+            [self.bgButton addSubview:self.oView];
+        }
+    } failure:^(NSError *error) {}];
 }
 -(void)viewWillAppear:(BOOL)animated
 {

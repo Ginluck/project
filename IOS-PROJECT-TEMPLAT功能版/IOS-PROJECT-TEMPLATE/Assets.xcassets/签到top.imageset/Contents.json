@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "红包.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "签到top.png",
       "scale" : "2x"
     },
     {

@@ -53,6 +53,7 @@
 		7101DBAC249235FB004DF6BD /* ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7101DBAB249235FB004DF6BD /* ShareView.xib */; };
 		71071DEE24776D04003CAAB7 /* ApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71071DEC24776D04003CAAB7 /* ApplyController.m */; };
 		71071DEF24776D04003CAAB7 /* ApplyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71071DED24776D04003CAAB7 /* ApplyController.xib */; };
+		71179BC4249CA005008FA74A /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71179BC3249CA005008FA74A /* bgm.mp3 */; };
 		711B0A7C2469294C009C84DB /* IDSafeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711B0A572469294B009C84DB /* IDSafeViewController.m */; };
 		711B0A7D2469294C009C84DB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711B0A582469294B009C84DB /* SettingsViewController.m */; };
 		711B0A7E2469294C009C84DB /* PhoneChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 711B0A592469294B009C84DB /* PhoneChangeViewController.xib */; };
@@ -630,7 +631,6 @@
 		71CBDDC024864D8600DB8A0D /* JipinSetChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CBDDBF24864D8600DB8A0D /* JipinSetChild.m */; };
 		71DA413A24970C3B00D42D55 /* RecordMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DA413824970C3B00D42D55 /* RecordMoneyViewController.m */; };
 		71DA413B24970C3B00D42D55 /* RecordMoneyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DA413924970C3B00D42D55 /* RecordMoneyViewController.xib */; };
-		71DA413D24975FC100D42D55 /* 3858567684.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71DA413C24975FC100D42D55 /* 3858567684.mp3 */; };
 		71DA4140249B168F00D42D55 /* OpinionFeedBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DA413F249B168F00D42D55 /* OpinionFeedBackView.m */; };
 		71DA4142249B16CF00D42D55 /* OpinionFeedBackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DA4141249B16CF00D42D55 /* OpinionFeedBackView.xib */; };
 		71DA4146249B4ADE00D42D55 /* SignModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DA4145249B4ADE00D42D55 /* SignModel.m */; };
@@ -782,6 +782,7 @@
 		71071DEB24776D04003CAAB7 /* ApplyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyController.h; sourceTree = "<group>"; };
 		71071DEC24776D04003CAAB7 /* ApplyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyController.m; sourceTree = "<group>"; };
 		71071DED24776D04003CAAB7 /* ApplyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyController.xib; sourceTree = "<group>"; };
+		71179BC3249CA005008FA74A /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
 		711B0A562469294B009C84DB /* NewPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPhoneViewController.h; sourceTree = "<group>"; };
 		711B0A572469294B009C84DB /* IDSafeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDSafeViewController.m; sourceTree = "<group>"; };
 		711B0A582469294B009C84DB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -1649,7 +1650,6 @@
 		71DA413724970C3B00D42D55 /* RecordMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordMoneyViewController.h; sourceTree = "<group>"; };
 		71DA413824970C3B00D42D55 /* RecordMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordMoneyViewController.m; sourceTree = "<group>"; };
 		71DA413924970C3B00D42D55 /* RecordMoneyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordMoneyViewController.xib; sourceTree = "<group>"; };
-		71DA413C24975FC100D42D55 /* 3858567684.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3858567684.mp3; sourceTree = "<group>"; };
 		71DA413E249B168F00D42D55 /* OpinionFeedBackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpinionFeedBackView.h; sourceTree = "<group>"; };
 		71DA413F249B168F00D42D55 /* OpinionFeedBackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpinionFeedBackView.m; sourceTree = "<group>"; };
 		71DA4141249B16CF00D42D55 /* OpinionFeedBackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpinionFeedBackView.xib; sourceTree = "<group>"; };
@@ -3365,7 +3365,7 @@
 				71BEE55A22CB529500E1B9E3 /* Frameworks */,
 				71BEE52222CB51EB00E1B9E3 /* ViewController.h */,
 				71BEE52322CB51EB00E1B9E3 /* ViewController.m */,
-				71DA413C24975FC100D42D55 /* 3858567684.mp3 */,
+				71179BC3249CA005008FA74A /* bgm.mp3 */,
 				71BEE52D22CB51ED00E1B9E3 /* Info.plist */,
 				71BEE52822CB51ED00E1B9E3 /* Assets.xcassets */,
 			);
@@ -3958,7 +3958,6 @@
 				715EE9D224750D7A009CF31A /* alert_default@2x.png in Resources */,
 				715EED2024750E02009CF31A /* animate_00055.png in Resources */,
 				71071DEF24776D04003CAAB7 /* ApplyController.xib in Resources */,
-				71DA413D24975FC100D42D55 /* 3858567684.mp3 in Resources */,
 				715EEB9824750DDC009CF31A /* msg_recv_audio02@3x.png in Resources */,
 				715EED3724750E02009CF31A /* animate_00074.png in Resources */,
 				715EEB9724750DDC009CF31A /* msg_location_white@2x.png in Resources */,
@@ -4114,6 +4113,7 @@
 				715EED2B24750E02009CF31A /* animate_00064.png in Resources */,
 				711B0AE5246929A7009C84DB /* FamilyCreateController.xib in Resources */,
 				715EEB3624750DDB009CF31A /* pin-red.png in Resources */,
+				71179BC4249CA005008FA74A /* bgm.mp3 in Resources */,
 				715EED0724750E02009CF31A /* animate_00025.png in Resources */,
 				715EEB6924750DDC009CF31A /* chatbar_map_blue@2x.png in Resources */,
 				715EED1224750E02009CF31A /* animate_00051.png in Resources */,

@@ -54,7 +54,7 @@
     }
     else
     {
-        ShowMessage(@"暂时没有签到日期");
+//        ShowMessage(@"暂时没有签到日期");
     }
 }
 
@@ -86,7 +86,7 @@
 -(FSCalendar *)calendar
 {
     if (!_calendar) {
-        _calendar = [[FSCalendar alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        _calendar = [[FSCalendar alloc] initWithFrame:self.bounds];
         _calendar.center =CGPointMake(self.frame.size.width/2, 140);
         _calendar.backgroundColor = [UIColor whiteColor];
         _calendar.dataSource = self;

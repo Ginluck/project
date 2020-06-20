@@ -11,21 +11,40 @@
 #import "MoneyView.h"
 #import "CalendarView.h"
 #import "NSDate+CommonDate.h"
-
+#import "SignModel.h"
 #import "ShareView.h"
-@interface MoneyRecordViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,shareViewDelegate,DZNEmptyDataSetDelegate,moneyViewDelegate>
+@interface MoneyRecordViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,shareViewDelegate,DZNEmptyDataSetDelegate,moneyCellDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSMutableArray  * dataAry ;
 @property(nonatomic,assign)NSInteger  page;
-@property(nonatomic,strong)MoneyView * mView;
+
 @property(nonatomic,strong)CalendarView * cView;
 @property(nonatomic,strong)ShareView * sView;
 @property(nonatomic,strong)UIButton *  bgButton;
+@property(nonatomic,strong)SignModel *  model;
 @end
 
 @implementation MoneyRecordViewController
 
+-(void)moneyBtnClick:(UIButton *)sender;
+{
+    SigninChild *model =self.model.additionalSignIn[sender.tag];
+    [RequestHelp POST:JS_GETREWARD_URL parameters:@{@"consecutiveDays":model.consecutiveDays} success:^(id result) {
+        ShowMessage(result);
+        [self requestData];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+-(void)signBtnClick:(UIButton *)sender
+{
+    [RequestHelp POST:JS_SIGNIN_URL parameters:@{} success:^(id result) {
+        ShowMessage(result);
+        [self requestData];
+    } failure:^(NSError *error) {
+    }];
 
+}
 -(void)shareViewBtnClick:(UIButton *)button
 {
     [self buttonClick];
@@ -111,57 +130,20 @@
     }
     return _bgButton;
 }
--(MoneyView *)mView
-{
-    if (!_mView) {
-        _mView =[[[NSBundle mainBundle] loadNibNamed:@"MoneyView" owner:self options:nil] firstObject];
-        _mView.frame =CGRectMake(0, 0, Screen_Width, Screen_Height-K_NaviHeight);
-        _mView.delegate =self;
-    }
-    return _mView;
-}
+
 -(void)inviteBtnClick
 {
     [[UIApplication sharedApplication].keyWindow addSubview:self.bgButton];
     [self.bgButton addSubview:self.sView];
 }
--(void)calendarBtnClick
-{
-    NSMutableArray * ary =[NSMutableArray array];
-    for (int i=0; i<5; i++)
-    {
-        NSString * str =[NSString stringWithFormat:@"2020-06-1%d",i];
-        NSDate * date =[NSDate dateWithFormat:@"yyyy-MM-dd" dateString:str];
-        [ary addObject:date];
-    }
-    self.cView.selectedAry =ary;
-    
-    [[UIApplication sharedApplication].keyWindow addSubview:self.bgButton];
-    [self.bgButton addSubview:self.cView];
-}
-//-(CalendarView *)cView
-//{
-//    if (!_cView) {
-//        _cView =[[CalendarView alloc]initWithFrame:CGRectMake(0, 0, 280, 280)];
-//        _cView.center =CGPointMake(Screen_Width/2, Screen_Height/2);
-//    }
-//    return _cView;
-//}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.mView.frame =CGRectMake(0, 0, Screen_Width, Screen_Height-K_NaviHeight);
-    [self.view addSubview:self.mView];
-//    [self.view addSubview:self.tableView];
-//    [self regisNib];
+    [self.view addSubview:self.tableView];
+    [self regisNib];
     [self addNavigationTitleView:@"纪念币"];
-//    self.tableView.mj_header =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        [self postDate];
-//    }];
-//    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//        self.page = self.page + 1;
-//        [self refreshPostData];
-//
-//    }];
+    [self requestData];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -177,10 +159,9 @@
 {
     if (!_tableView)
     {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, K_NaviHeight, Screen_Width, Screen_Height-K_NaviHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,kNavagationBarH, Screen_Width, Screen_Height-kNavagationBarH) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.tableHeaderView=self.mView;
         UIImageView * imageV =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, CGRectGetHeight(_tableView.frame))];
         imageV.image =KImageNamed(@"通用背景");
         _tableView.backgroundView =imageV;
@@ -205,48 +186,56 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60;
+    return 600;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     MoneyCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MoneyCell class]) forIndexPath:indexPath];
     cell.selectionStyle  =UITableViewCellSeparatorStyleNone;
     cell.backgroundColor =[UIColor clearColor];
-    
+    cell.delegate=self;
+    [cell reloadCell:self.model];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30.f;
+    return .1f;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return .1;
+    return 60;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView * view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 30)];
-    UILabel * lab =[[UILabel alloc]initWithFrame:CGRectMake(20, 0, Screen_Width-40, 30)];
-    lab.font =MKFont(15);
-    lab.textColor =[UIColor blackColor];
-    lab.text =@"纪念币获取记录";
-    [view addSubview:lab];
-    return view;
+    return nil;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return nil;
+    UIView* view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 60)];
+    view.backgroundColor =[UIColor whiteColor];
+    
+    UIButton * button =[UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame =CGRectMake(5, 6, Screen_Width-10, 48);
+    button.backgroundColor =K_Prokect_MainColor;
+    button.layer.cornerRadius=24;
+    button.layer.masksToBounds=YES;
+    [button setTitle:@"邀 请 好 友" forState:UIControlStateNormal];
+    [button.titleLabel setFont:MKFont(18)];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(inviteBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:button];
+    
+    return view;
 }
 -(void)endRefresh
 {
@@ -273,36 +262,19 @@
     }
     return _dataAry;
 }
--(void)postDate
+-(void)requestData
 {
-    self.page = 1;
-    [self.dataAry removeAllObjects];
-    [self.tableView reloadData];
-    [self refreshPostData];
+    ShowMaskStatus(@"加载数据中");
+    [RequestHelp POST:JS_SIGNRECORD_URL parameters:@{} success:^(id result) {
+        MKLog(@"%@",result);
+        DismissHud();
+        self.model  =[SignModel yy_modelWithJSON:result];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        DismissHud();
+    }];
 }
--(void)refreshPostData
-{
-//    UserModel * model =[[UserManager shareInstance]getUser];
-//    NSDictionary * param =@{@"pageNum":@(self.page),@"pageRow":@"10",@"status":@"0",@"jzId":model.jzId,@"ctId":@""};
-//    [RequestHelp POST:selectAppRechargeRecord parameters:param success:^(id result) {
-//        DLog(@"%@",result);
-//        [self.dataAry addObjectsFromArray:[NSArray yy_modelArrayWithClass:[GongFengListModel class] json:result[@"list"]]];
-//        [self setupNotData];
-//        [self.tableView reloadData];
-//        [self endRefresh];
-//    } failure:^(NSError *error) {
-//        [self endRefresh];
-//    }];
-}
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 
 @end

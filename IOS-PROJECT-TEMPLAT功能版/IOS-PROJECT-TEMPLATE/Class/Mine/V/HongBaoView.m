@@ -26,7 +26,7 @@
     if (!_action)
     {
         _action =[UIButton buttonWithType:UIButtonTypeCustom];
-        [_action setImage:KImageNamed(@"红包") forState:UIControlStateNormal];
+//        [_action setImage:KImageNamed(@"红包") forState:UIControlStateNormal];
         _action.frame =CGRectMake(0, 0, 40, 50);
         _action.contentMode =UIViewContentModeScaleAspectFit;
     }

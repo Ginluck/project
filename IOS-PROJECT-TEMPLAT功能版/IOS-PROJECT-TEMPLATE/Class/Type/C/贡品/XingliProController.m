@@ -102,6 +102,7 @@
     JipinCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JipinCell class]) forIndexPath:indexPath];
     cell.selectionStyle  =UITableViewCellSeparatorStyleNone;
     cell.delegate=self;
+    
     JipinModel* model =self.dataAry[indexPath.section];
     [cell setCell:model.sacrificeList row:indexPath.section];
     return cell;
@@ -118,7 +119,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return .1;
+    return 3;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -127,7 +128,7 @@
     UILabel * lab =[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 30)];
     view.backgroundColor =K_Prokect_MainColor;
     lab.center =CGPointMake(Screen_Width/2, 25);
-    lab.backgroundColor =[UIColor whiteColor];
+    lab.backgroundColor =K_Prokect_MainColor;
     lab.layer.cornerRadius =5.;
     lab.layer.masksToBounds=YES;
     lab.textAlignment =NSTextAlignmentCenter;
@@ -141,7 +142,9 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return nil;
+    UIView * view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 3)];
+    view.backgroundColor =[UIColor whiteColor];
+    return view;
 }
 -(void)endRefresh
 {

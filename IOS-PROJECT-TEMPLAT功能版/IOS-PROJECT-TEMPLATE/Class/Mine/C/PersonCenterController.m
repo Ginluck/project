@@ -219,7 +219,7 @@
 }
 -(void)GoldClick
 {
-    RecordMoneyViewController * mvc =[RecordMoneyViewController new];
+    MoneyRecordViewController * mvc =[MoneyRecordViewController new];
     mvc.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:mvc animated:YES];
 }

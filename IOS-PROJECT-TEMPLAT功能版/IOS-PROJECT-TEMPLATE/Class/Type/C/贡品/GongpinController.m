@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.view.backgroundColor =K_Prokect_MainColor;
     [self.view addSubview:self.tableView];
     [self regisNib];
     [self postDate];
@@ -67,12 +67,11 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, Screen_Width, Screen_Height-K_NaviHeight-40) style:UITableViewStyleGrouped];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        UIImageView * imageV =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, CGRectGetHeight(_tableView.frame))];
-        imageV.image =KImageNamed(@"通用背景");
-        _tableView.backgroundView =imageV;
+        _tableView.backgroundColor =K_Prokect_MainColor;
         _tableView.emptyDataSetSource =self;
         _tableView.emptyDataSetDelegate=self;
-        _tableView.backgroundColor =kBGViewCOLOR;
+        _tableView.backgroundColor =K_Prokect_MainColor;
+        _tableView.separatorStyle =UITableViewCellSeparatorStyleNone;
         _tableView.showsVerticalScrollIndicator = NO;
         if (@available(iOS 11, *)) {
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -101,6 +100,7 @@
 {
     
     JipinCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([JipinCell class]) forIndexPath:indexPath];
+    cell.backgroundColor =K_Prokect_MainColor;
     cell.selectionStyle  =UITableViewCellSeparatorStyleNone;
     JipinModel * model =self.dataAry[indexPath.section];
     [cell setCell:model.sacrificeList row:indexPath.section];
@@ -115,17 +115,22 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 30.f;
+    return 40.f;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return .1;
+    return 3;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView * view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 30)];
+    UIView * view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 40)];
     
-    UILabel * lab =[[UILabel alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 30)];
+    UILabel * lab =[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 30)];
+    view.backgroundColor =K_Prokect_MainColor;
+    lab.center =CGPointMake(Screen_Width/2, 25);
+    lab.backgroundColor =K_Prokect_MainColor;
+    lab.layer.cornerRadius =5.;
+    lab.layer.masksToBounds=YES;
     lab.textAlignment =NSTextAlignmentCenter;
     [lab setFont:MKFont(15)];
     lab.textColor =K_Prokect_MainColor;
@@ -137,7 +142,9 @@
 }
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return nil;
+    UIView * view =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 3)];
+    view.backgroundColor =[UIColor whiteColor];
+    return view;
 }
 -(void)endRefresh
 {

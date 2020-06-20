@@ -41,7 +41,7 @@
     [self setJPush:launchOptions];
     //存储启动时间
     NSString * launchTime = [UIUtils getCurrentTimes];
-    NSDictionary * launchDic =@{@"launchTime":launchTime,@"isOut":@"0"};
+    NSDictionary * launchDic =@{@"launchTime":launchTime};
     [[NSUserDefaults standardUserDefaults]setObject:launchDic forKey:@"launch_Dic"];
 
     //展示首图
@@ -58,6 +58,40 @@
 /*
  判断用户是否登录
  */
+
+
+
+
+-(void)requestIsSetOpinion
+{
+    UserModel * model =[[UserManager shareInstance]getUser];
+    if (model ==nil ||model.id==nil ||model.id.length ==0)
+    {
+        return;
+    }
+    [RequestHelp POST:JS_ISFEEDBACK_URL parameters:@{} success:^(id result) {
+        NSInteger value =[result integerValue];
+        if (value>0)
+        {
+            NSString * launchTime = [UIUtils getCurrentTimes];
+            NSDictionary * launchDic =@{@"launchTime":launchTime,@"isOut":@"1"};
+            [[NSUserDefaults standardUserDefaults]setObject:launchDic forKey:@"launch_Dic"];
+        }
+        else
+        {
+            NSString * launchTime = [UIUtils getCurrentTimes];
+            NSDictionary * launchDic =@{@"launchTime":launchTime,@"isOut":@"0"};
+            [[NSUserDefaults standardUserDefaults]setObject:launchDic forKey:@"launch_Dic"];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
+
+
+
 -(BOOL)isUserLogin
 {
     UserModel * model =[[UserManager shareInstance]getUser];
