@@ -48,8 +48,9 @@
 -(void)shareViewBtnClick:(UIButton *)button
 {
     [self buttonClick];
+    UserModel * model =[[UserManager shareInstance]getUser];
     UIPasteboard *pab = [UIPasteboard generalPasteboard];
-    pab.string = @"复制整段，打开【祭念app】 我的邀请码：698826586";
+    pab.string = [NSString stringWithFormat:@"复制整段，打开【祭念app】 我的邀请码：%@",model.yqm];
     
     NSString * message;
     if (button.tag ==99)

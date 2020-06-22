@@ -13,7 +13,7 @@
 #import "ZupuHomeCell.h"
 #import "FamilyListModel.h"
 #import "CitangHeaderView.h"
-
+#import "MoneyRecordViewController.h"
 #import "NSDate+CommonDate.h"
 #import "OpinionFeedBackView.h"
 @interface TypeHomeController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,OpinionViewDelegate>
@@ -60,8 +60,23 @@
 
     }];
     
+    UIButton * button1 =[UIButton buttonWithType:UIButtonTypeCustom];
+    button1.frame =CGRectMake(Screen_Width-60, K_NaviHeight+10, 50, 50);
+    [button1 setImage:KImageNamed(@"签到入口") forState:UIControlStateNormal];
+    button1.layer.cornerRadius =15.f;
+    button1.layer.masksToBounds=YES;
+    [button1 addTarget:self action:@selector(qiandao) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
+    
 
 //     Do any additional setup after loading the view from its nib.
+}
+
+-(void)qiandao
+{
+    MoneyRecordViewController * mvc= [MoneyRecordViewController new];
+    mvc.hidesBottomBarWhenPushed =YES;
+    [self.navigationController pushViewController:mvc animated:YES];
 }
 
 -(CitangHeaderView *)headerView

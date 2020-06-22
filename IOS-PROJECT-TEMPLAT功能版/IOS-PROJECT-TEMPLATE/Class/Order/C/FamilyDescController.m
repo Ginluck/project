@@ -35,15 +35,18 @@
 }
 -(IBAction)jumpClick
 {
-    if (self.model.contentType!=0)
+    if ([self.model.countType integerValue]!=0)
     {
-        ShowMessage(@"您已加入该家族");
+        ShowMessage(@"您不能申请自己创建的家族");
         return;
     }
-    if (self.model.userType!=0)
+    if ([self.model.userType integerValue]!=0)
     {
         ShowMessage(@"您已申请该家族，请勿重新申请");
         return;
+    }
+    if ([self.model.zpJzType integerValue] !=0) {
+        ShowMessage(@"您已加入该家族");
     }
     
     ApplyController * AVC =[ApplyController new];

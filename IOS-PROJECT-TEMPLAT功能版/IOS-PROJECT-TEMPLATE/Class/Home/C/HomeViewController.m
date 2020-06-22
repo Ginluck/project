@@ -18,6 +18,7 @@
 #import "SJActionSheet.h"
 #import "NSDate+CommonDate.h"
 #import "OpinionFeedBackView.h"
+#import "MoneyRecordViewController.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,OpinionViewDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSMutableArray  * dataAry ;
@@ -60,7 +61,26 @@
     button.layer.masksToBounds=YES;
     [button addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    
+    
+    UIButton * button1 =[UIButton buttonWithType:UIButtonTypeCustom];
+    button1.frame =CGRectMake(Screen_Width-60, K_NaviHeight+10, 50, 50);
+    [button1 setImage:KImageNamed(@"签到入口") forState:UIControlStateNormal];
+    button1.layer.cornerRadius =15.f;
+    button1.layer.masksToBounds=YES;
+    [button1 addTarget:self action:@selector(qiandao) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
+    
+//      [EOCWeChatFloatingBtn show];
     //     Do any additional setup after loading the view from its nib.
+}
+
+-(void)qiandao
+{
+    MoneyRecordViewController * mvc= [MoneyRecordViewController new];
+    mvc.hidesBottomBarWhenPushed =YES;
+    [self.navigationController pushViewController:mvc animated:YES];
 }
 -(void)opinionViewClick:(UIButton *)button
 {

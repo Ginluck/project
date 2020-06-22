@@ -62,4 +62,6 @@
 
 @property(nonatomic,copy)NSString *introduce;
 
+
+@property(nonatomic,copy)NSString *yqm;
 @end

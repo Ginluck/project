@@ -30,7 +30,16 @@
     }
     
     self.moneyLabel.text =model.anniversaryMoney;
-    self.signLabel.text =[NSString stringWithFormat:@"您已签到%@天",model.signInCount];
+    NSString *usedStr = [NSString stringWithFormat:@"您已签到%@天",model.signInCount];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:usedStr];
+    // 设置字体颜色
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0,4)];
+    [str addAttribute:NSForegroundColorAttributeName value:K_Prokect_MainColor range:NSMakeRange(4,model.signInCount.length)];
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(4+model.signInCount.length, 1)];
+    // 设置字体
+     [str addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:24.0] range:NSMakeRange(4,model.signInCount.length)];
+    
+    self.signLabel.attributedText =str;
     if ([model.signInType isEqualToString:@"1"])
     {
         [self.signButton setTitle:@" 已 签 到" forState:UIControlStateNormal];
@@ -123,7 +132,7 @@
 -(CalendarView *)cView
 {
     if (!_cView) {
-        _cView =[[CalendarView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 230)];
+        _cView =[[CalendarView alloc]initWithFrame:CGRectMake(15, 0, Screen_Width-30, 230)];
     }
     return _cView;
 }
