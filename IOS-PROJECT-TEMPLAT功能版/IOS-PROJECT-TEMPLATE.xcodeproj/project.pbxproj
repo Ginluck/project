@@ -29,6 +29,9 @@
 		1864E40924935DCC00708D52 /* FirstTypeHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1864E40724935DCC00708D52 /* FirstTypeHomeViewController.xib */; };
 		1864E40D24935ECD00708D52 /* FirstTypeHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1864E40B24935ECD00708D52 /* FirstTypeHomeTableViewCell.m */; };
 		1864E40E24935ECD00708D52 /* FirstTypeHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1864E40C24935ECD00708D52 /* FirstTypeHomeTableViewCell.xib */; };
+		18B6960424A1924D003E870E /* PolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B6960124A1924C003E870E /* PolicyViewController.m */; };
+		18B6960524A1924D003E870E /* PolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B6960324A1924D003E870E /* PolicyViewController.xib */; };
+		18B6960824A1927D003E870E /* HWBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B6960624A1927C003E870E /* HWBaseWebViewController.m */; };
 		18B8E8A824985E4500BDE399 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B8E8A724985E4500BDE399 /* MobileCoreServices.framework */; };
 		18C1F40424768FEB00B16077 /* MineDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C1F40324768FEB00B16077 /* MineDataModel.m */; };
 		18F930632477D942007BA7FF /* TeasingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F930602477D941007BA7FF /* TeasingViewController.xib */; };
@@ -740,6 +743,11 @@
 		1864E40A24935ECD00708D52 /* FirstTypeHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstTypeHomeTableViewCell.h; sourceTree = "<group>"; };
 		1864E40B24935ECD00708D52 /* FirstTypeHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstTypeHomeTableViewCell.m; sourceTree = "<group>"; };
 		1864E40C24935ECD00708D52 /* FirstTypeHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstTypeHomeTableViewCell.xib; sourceTree = "<group>"; };
+		18B6960124A1924C003E870E /* PolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolicyViewController.m; sourceTree = "<group>"; };
+		18B6960224A1924C003E870E /* PolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolicyViewController.h; sourceTree = "<group>"; };
+		18B6960324A1924D003E870E /* PolicyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PolicyViewController.xib; sourceTree = "<group>"; };
+		18B6960624A1927C003E870E /* HWBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWBaseWebViewController.m; sourceTree = "<group>"; };
+		18B6960724A1927C003E870E /* HWBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWBaseWebViewController.h; sourceTree = "<group>"; };
 		18B8E8A724985E4500BDE399 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		18C1F40224768FEB00B16077 /* MineDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineDataModel.h; sourceTree = "<group>"; };
 		18C1F40324768FEB00B16077 /* MineDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineDataModel.m; sourceTree = "<group>"; };
@@ -3239,6 +3247,11 @@
 		719D4B37239F75C7003C6803 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				18B6960724A1927C003E870E /* HWBaseWebViewController.h */,
+				18B6960624A1927C003E870E /* HWBaseWebViewController.m */,
+				18B6960224A1924C003E870E /* PolicyViewController.h */,
+				18B6960124A1924C003E870E /* PolicyViewController.m */,
+				18B6960324A1924D003E870E /* PolicyViewController.xib */,
 				711B0A9424692953009C84DB /* RegisterViewController.h */,
 				711B0A9624692953009C84DB /* RegisterViewController.m */,
 				711B0A9524692953009C84DB /* RegisterViewController.xib */,
@@ -3774,8 +3787,8 @@
 				71BEE51822CB51EB00E1B9E3 /* Sources */,
 				71BEE51922CB51EB00E1B9E3 /* Frameworks */,
 				71BEE51A22CB51EB00E1B9E3 /* Resources */,
-				21F1586A5FFCFFDA88B8DFE0 /* [CP] Embed Pods Frameworks */,
 				889A521D7513936AC56D6E7A /* [CP] Copy Pods Resources */,
+				8D20B5379E855C44967C3C37 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3908,6 +3921,7 @@
 				715EED6824750E02009CF31A /* mute_red@2x.png in Resources */,
 				715EEB4C24750DDC009CF31A /* icon_022.gif in Resources */,
 				711B0B00246929CE009C84DB /* MineTableViewCell.xib in Resources */,
+				18B6960524A1924D003E870E /* PolicyViewController.xib in Resources */,
 				715EEB6A24750DDC009CF31A /* chatbar_call_blue@3x.png in Resources */,
 				715EED1D24750E02009CF31A /* animate_00080.png in Resources */,
 				715EEBAC24750DDC009CF31A /* msg_file_white@3x.png in Resources */,
@@ -4255,23 +4269,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		21F1586A5FFCFFDA88B8DFE0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IOS-PROJECT-TEMPLATE/Pods-IOS-PROJECT-TEMPLATE-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IOS-PROJECT-TEMPLATE/Pods-IOS-PROJECT-TEMPLATE-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IOS-PROJECT-TEMPLATE/Pods-IOS-PROJECT-TEMPLATE-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4CCAB1D312B52683D73ADAF8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4309,6 +4306,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IOS-PROJECT-TEMPLATE/Pods-IOS-PROJECT-TEMPLATE-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D20B5379E855C44967C3C37 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOS-PROJECT-TEMPLATE/Pods-IOS-PROJECT-TEMPLATE-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IOS-PROJECT-TEMPLATE/Pods-IOS-PROJECT-TEMPLATE-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IOS-PROJECT-TEMPLATE/Pods-IOS-PROJECT-TEMPLATE-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94060A59D714CC0D9F68AD87 /* [CP] Check Pods Manifest.lock */ = {
@@ -4385,6 +4399,7 @@
 				711B0ADB24692979009C84DB /* SJSheetFoot.m in Sources */,
 				715EEB8B24750DDC009CF31A /* EMMsgFileBubbleView.m in Sources */,
 				71534AFE239F6515009AF361 /* UserManager.m in Sources */,
+				18B6960424A1924D003E870E /* PolicyViewController.m in Sources */,
 				7125882B2477677100E7E50A /* FamilyDescController.m in Sources */,
 				711B0AF0246929AF009C84DB /* LineView.m in Sources */,
 				711B0B04246929CE009C84DB /* MineTableViewCell.m in Sources */,
@@ -4624,6 +4639,7 @@
 				711B0B56246929E8009C84DB /* LYSDatePickerController.m in Sources */,
 				71E55BB8246E65C500255230 /* GongPinDetialTopView.m in Sources */,
 				711B0AAB2469296E009C84DB /* AddNewMemberController.m in Sources */,
+				18B6960824A1927D003E870E /* HWBaseWebViewController.m in Sources */,
 				719D4B54239F7CB8003C6803 /* HomeHeaderCell.m in Sources */,
 				71005ECA246A474D002F0BF1 /* TaoCanViewController.m in Sources */,
 				711B0ADF24692979009C84DB /* MemberDetailGuanxiCell.m in Sources */,
