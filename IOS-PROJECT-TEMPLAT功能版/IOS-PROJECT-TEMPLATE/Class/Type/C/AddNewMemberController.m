@@ -115,6 +115,17 @@
             self.pickerView.valueDidSelect = ^(NSString *value){
                 [weakSelf.stateBtn setTitle:value forState:UIControlStateNormal];
                 weakSelf.stateValue =[NSString stringWithFormat:@"%lu",(unsigned long)[weakSelf.pickerView.dataSource indexOfObject:value]];
+                if ([weakSelf.stateValue isEqualToString:@"0"])
+                {
+                    weakSelf.deathBtn.userInteractionEnabled =NO;
+                    weakSelf.death =@"";
+                    [weakSelf.deathBtn setTitle:@"请选择离世时间" forState:UIControlStateNormal];
+                    
+                }
+                else
+                {
+                    weakSelf.deathBtn.userInteractionEnabled =YES;
+                }
             };
         }
             break;

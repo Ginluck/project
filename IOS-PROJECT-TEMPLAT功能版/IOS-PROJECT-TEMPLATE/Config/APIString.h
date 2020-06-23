@@ -140,6 +140,8 @@
 #define JS_GETREWARD_URL @"appQd/appAddAdditionalReward"
 //查询是否反馈意见
 #define JS_ISFEEDBACK_URL @"userApp/selectOpinionIsExist"
+//纪念币消费记录
+#define JS_SELECTCOINRECORD_URL @"appRechargeRecord/appSelectByCommemorativeCoinRecord"
 
 
 #endif /* APIString_h */

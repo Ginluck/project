@@ -56,6 +56,8 @@
 		7101DBAC249235FB004DF6BD /* ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7101DBAB249235FB004DF6BD /* ShareView.xib */; };
 		71071DEE24776D04003CAAB7 /* ApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71071DEC24776D04003CAAB7 /* ApplyController.m */; };
 		71071DEF24776D04003CAAB7 /* ApplyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71071DED24776D04003CAAB7 /* ApplyController.xib */; };
+		711349C624A1FAB0009F4F85 /* RecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 711349C524A1FAB0009F4F85 /* RecordModel.m */; };
+		711349C924A1FAD7009F4F85 /* RecordChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 711349C824A1FAD7009F4F85 /* RecordChild.m */; };
 		71179BC4249CA005008FA74A /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71179BC3249CA005008FA74A /* bgm.mp3 */; };
 		711B0A7C2469294C009C84DB /* IDSafeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711B0A572469294B009C84DB /* IDSafeViewController.m */; };
 		711B0A7D2469294C009C84DB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711B0A582469294B009C84DB /* SettingsViewController.m */; };
@@ -204,6 +206,8 @@
 		7125FC7E247DFA53006F4B54 /* MemberDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7125FC7D247DFA53006F4B54 /* MemberDetailModel.m */; };
 		71374C4624A194DA00E49ED1 /* QiandaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71374C4524A194DA00E49ED1 /* QiandaoView.m */; };
 		71374C4824A194EF00E49ED1 /* QiandaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71374C4724A194EF00E49ED1 /* QiandaoView.xib */; };
+		71374C4C24A1F65D00E49ED1 /* RecordMoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71374C4A24A1F65D00E49ED1 /* RecordMoneyCell.m */; };
+		71374C4D24A1F65D00E49ED1 /* RecordMoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71374C4B24A1F65D00E49ED1 /* RecordMoneyCell.xib */; };
 		71388AFA2480A28D0011E7A8 /* CitangDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71388AF92480A28D0011E7A8 /* CitangDetailModel.m */; };
 		71388AFC2480BB710011E7A8 /* 发光gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71388AFB2480BB710011E7A8 /* 发光gif.gif */; };
 		71388AFF2484DF6C0011E7A8 /* ImageBigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 71388AFE2484DF6C0011E7A8 /* ImageBigger.m */; };
@@ -792,6 +796,10 @@
 		71071DEB24776D04003CAAB7 /* ApplyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyController.h; sourceTree = "<group>"; };
 		71071DEC24776D04003CAAB7 /* ApplyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyController.m; sourceTree = "<group>"; };
 		71071DED24776D04003CAAB7 /* ApplyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyController.xib; sourceTree = "<group>"; };
+		711349C424A1FAB0009F4F85 /* RecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordModel.h; sourceTree = "<group>"; };
+		711349C524A1FAB0009F4F85 /* RecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordModel.m; sourceTree = "<group>"; };
+		711349C724A1FAD7009F4F85 /* RecordChild.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordChild.h; sourceTree = "<group>"; };
+		711349C824A1FAD7009F4F85 /* RecordChild.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordChild.m; sourceTree = "<group>"; };
 		71179BC3249CA005008FA74A /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
 		711B0A562469294B009C84DB /* NewPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPhoneViewController.h; sourceTree = "<group>"; };
 		711B0A572469294B009C84DB /* IDSafeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDSafeViewController.m; sourceTree = "<group>"; };
@@ -1041,6 +1049,9 @@
 		71374C4424A194DA00E49ED1 /* QiandaoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QiandaoView.h; sourceTree = "<group>"; };
 		71374C4524A194DA00E49ED1 /* QiandaoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiandaoView.m; sourceTree = "<group>"; };
 		71374C4724A194EF00E49ED1 /* QiandaoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QiandaoView.xib; sourceTree = "<group>"; };
+		71374C4924A1F65D00E49ED1 /* RecordMoneyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordMoneyCell.h; sourceTree = "<group>"; };
+		71374C4A24A1F65D00E49ED1 /* RecordMoneyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordMoneyCell.m; sourceTree = "<group>"; };
+		71374C4B24A1F65D00E49ED1 /* RecordMoneyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordMoneyCell.xib; sourceTree = "<group>"; };
 		71388AF82480A28D0011E7A8 /* CitangDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitangDetailModel.h; sourceTree = "<group>"; };
 		71388AF92480A28D0011E7A8 /* CitangDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitangDetailModel.m; sourceTree = "<group>"; };
 		71388AFB2480BB710011E7A8 /* 发光gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "发光gif.gif"; sourceTree = "<group>"; };
@@ -1839,6 +1850,9 @@
 				1864E40A24935ECD00708D52 /* FirstTypeHomeTableViewCell.h */,
 				1864E40B24935ECD00708D52 /* FirstTypeHomeTableViewCell.m */,
 				1864E40C24935ECD00708D52 /* FirstTypeHomeTableViewCell.xib */,
+				71374C4924A1F65D00E49ED1 /* RecordMoneyCell.h */,
+				71374C4A24A1F65D00E49ED1 /* RecordMoneyCell.m */,
+				71374C4B24A1F65D00E49ED1 /* RecordMoneyCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -3650,6 +3664,10 @@
 				71DA4145249B4ADE00D42D55 /* SignModel.m */,
 				71DA4147249B4B6400D42D55 /* SigninChild.h */,
 				71DA4148249B4B6400D42D55 /* SigninChild.m */,
+				711349C424A1FAB0009F4F85 /* RecordModel.h */,
+				711349C524A1FAB0009F4F85 /* RecordModel.m */,
+				711349C724A1FAD7009F4F85 /* RecordChild.h */,
+				711349C824A1FAD7009F4F85 /* RecordChild.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -4224,6 +4242,7 @@
 				715EEB5624750DDC009CF31A /* icon_019.gif in Resources */,
 				711B0AB22469296E009C84DB /* FamilyMemberInfoController.xib in Resources */,
 				715EEB5E24750DDC009CF31A /* icon_020_cover.png in Resources */,
+				71374C4D24A1F65D00E49ED1 /* RecordMoneyCell.xib in Resources */,
 				7125882C2477677100E7E50A /* FamilyDescController.xib in Resources */,
 				715EEB4A24750DDC009CF31A /* icon_013.gif in Resources */,
 				715EEB9524750DDC009CF31A /* msg_send_audio02@2x.png in Resources */,
@@ -4492,6 +4511,7 @@
 				713F31CF2472534200A00867 /* FamilyTreeMember.m in Sources */,
 				711B0B8424692B0C009C84DB /* NSString+VerifyText.m in Sources */,
 				715EE9C324750D7A009CF31A /* PSTCollectionViewLayout.m in Sources */,
+				711349C924A1FAD7009F4F85 /* RecordChild.m in Sources */,
 				711B0B4E246929E8009C84DB /* LYSDatePickerTypeDayAndTimeDelegate.m in Sources */,
 				715EEB6424750DDC009CF31A /* EMChatBarRecordAudioView.m in Sources */,
 				715EE9D024750D7A009CF31A /* EMAlertController.m in Sources */,
@@ -4504,6 +4524,7 @@
 				71BEE5AD22CB61EF00E1B9E3 /* DLSlideView.m in Sources */,
 				715EE9BA24750D7A009CF31A /* PSTCollectionViewCell.m in Sources */,
 				71E55BD7246E6DEE00255230 /* HomeTableHeaderView.m in Sources */,
+				71374C4C24A1F65D00E49ED1 /* RecordMoneyCell.m in Sources */,
 				71005ECE246A4A43002F0BF1 /* JipinCell.m in Sources */,
 				715EE9A924750D7A009CF31A /* EMAvatarNameCell.m in Sources */,
 				711B0B8924692B0C009C84DB /* UIView+CornerRdius.m in Sources */,
@@ -4604,6 +4625,7 @@
 				711B0B54246929E8009C84DB /* LYSDatePickerItem.m in Sources */,
 				71005EDB246CDF95002F0BF1 /* FamilyListModel.m in Sources */,
 				715EECF624750E02009CF31A /* EMConferenceViewController.m in Sources */,
+				711349C624A1FAB0009F4F85 /* RecordModel.m in Sources */,
 				71BEE52122CB51EB00E1B9E3 /* AppDelegate.m in Sources */,
 				7185BD06247F89360028AA75 /* ChooseMemberController.m in Sources */,
 				715EEBB424750DDC009CF31A /* EMChatViewController.m in Sources */,

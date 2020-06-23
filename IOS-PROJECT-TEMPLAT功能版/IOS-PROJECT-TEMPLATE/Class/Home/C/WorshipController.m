@@ -57,7 +57,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self addNavigationTitleView:self.model.name];
     [self reloadUICompoents];
     [self requestData];
     [self setGPRequest];
