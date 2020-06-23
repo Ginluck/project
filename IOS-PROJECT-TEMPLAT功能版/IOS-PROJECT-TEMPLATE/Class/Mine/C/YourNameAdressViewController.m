@@ -223,11 +223,9 @@
     NSData * data =UIImagePNGRepresentation(image);
     [RequestHelp uploadPhotoData:data success:^(id result) {
         DLog(@"%@",result);
-        DismissHud();
         self.HeadImgStr=result[@"url"];
          self.HeadImg.image=image;
     } failure:^(NSError *error) {
-        DismissHud();
     }];
 }
 - (IBAction)SaveClick:(id)sender {

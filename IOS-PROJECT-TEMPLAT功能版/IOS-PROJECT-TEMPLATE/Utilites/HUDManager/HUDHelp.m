@@ -60,7 +60,7 @@ void ShowErrorStatus(NSString *statues)
             
             [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
             
-            [SVProgressHUD showProgress:0.5 status:@"上传"];
+            //[SVProgressHUD showProgress:0.5 status:@"上传"];
         });
     }
     else

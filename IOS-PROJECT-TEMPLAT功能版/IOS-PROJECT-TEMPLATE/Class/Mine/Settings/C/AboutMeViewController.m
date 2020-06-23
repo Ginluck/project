@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self addNavigationTitleView:@"关于祭念"];
     [self postdata];
     // Do any additional setup after loading the view from its nib.
 }
@@ -35,13 +36,13 @@
 - (IBAction)GongNeng:(id)sender {
     PolicyViewController *PVC =[PolicyViewController new];
        PVC.UrlStr = self.aboutAgreement;
-      PVC.title =@"功能介绍";
+    [PVC addNavigationTitleView:@"功能介绍"];
     [self.navigationController pushViewController:PVC animated:YES];
 }
 - (IBAction)Agreement:(id)sender {
      PolicyViewController *PVC =[PolicyViewController new];
           PVC.UrlStr = self.userAgreement;
-         PVC.title =@"用户协议";
+     [PVC addNavigationTitleView:@"用户协议"];
        [self.navigationController pushViewController:PVC animated:YES];
 }
 - (IBAction)Verson:(id)sender {
