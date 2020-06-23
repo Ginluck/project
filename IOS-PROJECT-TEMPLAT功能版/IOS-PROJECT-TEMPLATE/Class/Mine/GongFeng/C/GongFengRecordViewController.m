@@ -22,11 +22,11 @@
         // Do any additional setup after loading the view from its nib.
         self.tabedSlideView.baseViewController = self;
         //未选中字体颜色
-        self.tabedSlideView.tabItemNormalColor = [UIColor lightGrayColor];
+        self.tabedSlideView.tabItemNormalColor = [UIColor darkTextColor];
         //选中字体颜色
-        self.tabedSlideView.tabItemSelectedColor = [UIColor blackColor];
+        self.tabedSlideView.tabItemSelectedColor = K_Prokect_MainColor;
         //下面线颜色
-        self.tabedSlideView.tabbarTrackColor = [UIColor redColor];
+        self.tabedSlideView.tabbarTrackColor =K_Prokect_MainColor;
         self.tabedSlideView.tabbarBackgroundImage = [UIImage imageNamed:@"baikuang"];
         //距离下面多少
         self.tabedSlideView.tabbarBottomSpacing = 15;

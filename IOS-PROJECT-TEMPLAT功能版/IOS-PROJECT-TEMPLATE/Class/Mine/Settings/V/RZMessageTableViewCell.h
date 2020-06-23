@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *stateLab;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
 @property (weak, nonatomic) IBOutlet UIButton *lookBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnWidth;
 @property (weak, nonatomic) IBOutlet UIButton *cencelBtn;
 -(void)setModel:(RZMessageModel *)model type:(NSString *)type;
 @end

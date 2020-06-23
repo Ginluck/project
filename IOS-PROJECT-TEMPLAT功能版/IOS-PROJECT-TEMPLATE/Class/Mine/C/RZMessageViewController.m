@@ -93,7 +93,7 @@
     RZMessageModel *model=self.dataAry[indexPath.row];
     [cell setModel:model type:self.TypeStr];
     cell.lookBtn.tag=100+indexPath.row;
-    cell.lookBtn.tag=10000+indexPath.row;
+    cell.cencelBtn.tag=10000+indexPath.row;
     [cell.lookBtn addTarget:self action:@selector(GoLook:) forControlEvents:UIControlEventTouchUpInside];
     [cell.cencelBtn addTarget:self action:@selector(Gocencel:) forControlEvents:UIControlEventTouchUpInside];
     cell.selectionStyle  =UITableViewCellSeparatorStyleNone;
@@ -152,6 +152,10 @@
 -(void)refreshPostData
 {
     UserModel * model =[[UserManager shareInstance]getUser];
+    if (model.patriarch ==nil) {
+        [ViewControllerManager showLoginViewController];
+        return;
+    }
     NSDictionary * param ;
     if ([model.patriarch isEqualToString:@"1"]&&[self.TypeStr isEqualToString:@"1"]) { 
         param =@{@"pageNum":@(self.page),@"pageRow":@"10",@"jzId":model.jzId};

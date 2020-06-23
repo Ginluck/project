@@ -27,11 +27,6 @@
            ShowMessage(@"密码不能超过16位");
           textField.text=self.Pwdstr;
        }
-    else if (textField.text.length < 8)
-       {
-           ShowMessage(@"密码不能小于8位");
-            textField.text=self.Pwdstr;
-       }
     else
        {
            self.Pwdstr=textField.text;
@@ -51,6 +46,11 @@
        ShowMessage(@"请输入新密码");
         return;
     }
+    if (self.NewTF.text.length < 8)
+          {
+              ShowMessage(@"密码不能小于8位");
+               return;
+          }
     UserModel * model =[[UserManager shareInstance]getUser];
            [RequestHelp POST:UPDATE_PC_url parameters:@{@"userPhone":model.userPhone,@"password":self.OldTF.text,@"newPassword":[self.NewTF.text encryptAESWithkey:[UIUtils getCurrentTimes]]} success:^(id result){
                     DLog(@"%@",result);

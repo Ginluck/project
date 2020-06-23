@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *NavView;
 @property (weak, nonatomic) IBOutlet UIButton *LoginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *XieYiBtn;
+@property (weak, nonatomic) IBOutlet UIView *YQMView;
+@property (weak, nonatomic) IBOutlet UITextField *YQMTF;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,25 +7,42 @@
 //
 
 #import "AboutMeViewController.h"
+#import "PolicyViewController.h"
 #import "UserAgreementViewController.h"
 #import "MyIntroduceViewController.h"
 @interface AboutMeViewController ()
-
+@property(nonatomic,strong)NSString *userAgreement;
+@property(nonatomic,strong)NSString *aboutAgreement;
 @end
 
 @implementation AboutMeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self postdata];
     // Do any additional setup after loading the view from its nib.
 }
+-(void)postdata
+{
+       [RequestHelp POST:selectByAll_URL parameters:@{} success:^(id result) {
+           DLog(@"%@",result);
+           self.userAgreement=result[@"userAgreement"];
+           self.aboutAgreement=result[@"aboutAgreement"];
+       } failure:^(NSError *error) {
+           
+       }];
+}
 - (IBAction)GongNeng:(id)sender {
-    MyIntroduceViewController *UAVC=[MyIntroduceViewController new];
-       [self.navigationController pushViewController:UAVC animated:YES];
+    PolicyViewController *PVC =[PolicyViewController new];
+       PVC.UrlStr = self.aboutAgreement;
+      PVC.title =@"功能介绍";
+    [self.navigationController pushViewController:PVC animated:YES];
 }
 - (IBAction)Agreement:(id)sender {
-    UserAgreementViewController *UAVC=[UserAgreementViewController new];
-    [self.navigationController pushViewController:UAVC animated:YES];
+     PolicyViewController *PVC =[PolicyViewController new];
+          PVC.UrlStr = self.userAgreement;
+         PVC.title =@"用户协议";
+       [self.navigationController pushViewController:PVC animated:YES];
 }
 - (IBAction)Verson:(id)sender {
 }
