@@ -12,8 +12,10 @@
 #import "NSMutableAttributedString+WY_Extension.h"
 #import "NSString+Encryption.h"
 #import "JKCountDownButton.h"
+#import "PolicyViewController.h"
 @interface RegisterViewController ()
-
+@property(nonatomic,strong)NSString *userAgreement;
+@property(nonatomic,strong)NSString *aboutAgreement;
 @end
 
 @implementation RegisterViewController
@@ -30,8 +32,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self postdata];
     [self.NumberTF addTarget:self action:@selector(phoneNumberTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.PwdTF  addTarget:self action:@selector(passwordTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.YQMTF  addTarget:self action:@selector(yqmTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.NavHeight.constant =kNavagationBarH;
        [self.NavView setNeedsLayout];
      //需要点击的字符不同
@@ -45,18 +49,33 @@
         [self.xieyiLab wy_clickRichTextWithStrings:@[@"《协议》"] clickAction:^(NSString *string, NSRange range, NSInteger index) {
             NSString *message = [NSString stringWithFormat:@"点击了“%@”字符\nrange: %@\nindex: %ld",string,NSStringFromRange(range),(long)index];
             NSLog(@"messge = %@",message);
-//            PolicyViewController *PVC =[PolicyViewController new];
-//            PVC.url = index==0?[NSURL URLWithString:@"http://112.126.99.251:8080/clause/protocol.html"]:[NSURL URLWithString:@"http://112.126.99.251:8080/clause/serviceProtocol.html"];
-//            PVC.title =index==0?@"房匠隐私政策":@"房匠用户服务协议";
-//            [self.navigationController pushViewController:PVC animated:YES];
+PolicyViewController *PVC =[PolicyViewController new];
+   PVC.UrlStr = self.userAgreement;
+  PVC.title =@"用户协议";
+[self.navigationController pushViewController:PVC animated:YES];
         }];
         //设置是否有点击效果，默认是YES
         self.xieyiLab.wy_enabledClickEffect = NO;
     // Do any additional setup after loading the view from its nib.
 }
+-(void)postdata
+{
+       [RequestHelp POST:selectByAll_URL parameters:@{} success:^(id result) {
+           DLog(@"%@",result);
+           self.userAgreement=result[@"userAgreement"];
+           self.aboutAgreement=result[@"aboutAgreement"];
+       } failure:^(NSError *error) {
+           
+       }];
+}
 - (void)phoneNumberTextFieldDidChange:(UITextField *)textField{
     if (textField.text.length > 11) {
        textField.text=[textField.text  substringToIndex:11];
+    }
+}
+- (void)yqmTextFieldDidChange:(UITextField *)textField{
+    if (textField.text.length > 10) {
+       textField.text=[textField.text  substringToIndex:10];
     }
 }
 - (void)passwordTextFieldDidChange:(UITextField *)textField{
@@ -118,6 +137,23 @@
        
        CodeView.clipsToBounds = NO;
 }
+-(void)setYQMView:(UIView *)YQMView
+
+    {
+         YQMView.layer.masksToBounds=YES;
+           
+           YQMView.layer.shadowColor =COLOR(225, 225, 225, 1).CGColor;
+           
+           YQMView.layer.shadowOffset = CGSizeMake(1, 1);
+           
+           YQMView.layer.shadowOpacity = 1;
+           
+           YQMView.layer.shadowRadius = 3.0;
+           
+           YQMView.layer.cornerRadius = 30.0*Kscale;
+           
+           YQMView.clipsToBounds = NO;
+    }
 -(void)setLoginBtn:(UIButton *)LoginBtn
 {
           LoginBtn.layer.masksToBounds=YES;

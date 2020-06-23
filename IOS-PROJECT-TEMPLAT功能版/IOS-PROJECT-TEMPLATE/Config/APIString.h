@@ -72,6 +72,8 @@
 #define SELECT_CITY_URL  @"userApp/SELECT_CITY"
 //2.6.1 查询区
 #define SELECT_AREA_URL  @"userApp/SELECT_AREA"
+//协议
+#define selectByAll_URL  @"appAgreement/selectByAll"
 
 
 

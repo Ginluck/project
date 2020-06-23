@@ -38,23 +38,6 @@
                                 <color key="textColor" red="0.36862745099999999" green="0.066666666669999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FE1-8e-0SK">
-                                <rect key="frame" x="188" y="38.5" width="50" height="25"/>
-                                <color key="backgroundColor" red="0.36862745099999999" green="0.066666666669999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="baW-Bx-gbj"/>
-                                    <constraint firstAttribute="height" constant="25" id="y1S-zf-VcM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="查看">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8F5-eX-SKg">
                                 <rect key="frame" x="246" y="38.5" width="50" height="25"/>
                                 <color key="backgroundColor" red="0.36862745099999999" green="0.066666666669999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,17 +55,34 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FE1-8e-0SK">
+                                <rect key="frame" x="188" y="38.5" width="50" height="25"/>
+                                <color key="backgroundColor" red="0.36862745099999999" green="0.066666666669999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="baW-Bx-gbj"/>
+                                    <constraint firstAttribute="height" constant="25" id="y1S-zf-VcM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="查看">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8F5-eX-SKg" secondAttribute="trailing" constant="8" id="2Ic-kS-pix"/>
                             <constraint firstAttribute="bottom" secondItem="3FV-6L-Xp3" secondAttribute="bottom" constant="16" id="CGh-pn-5Q9"/>
                             <constraint firstItem="kz6-dO-5dv" firstAttribute="centerY" secondItem="jWQ-5w-RE4" secondAttribute="centerY" id="Iuz-ad-1zC"/>
-                            <constraint firstItem="8F5-eX-SKg" firstAttribute="leading" secondItem="FE1-8e-0SK" secondAttribute="trailing" constant="8" id="JyG-er-MU8"/>
                             <constraint firstItem="FE1-8e-0SK" firstAttribute="centerY" secondItem="YMM-1h-yCU" secondAttribute="centerY" id="MKd-sX-JNT"/>
                             <constraint firstItem="3FV-6L-Xp3" firstAttribute="leading" secondItem="YMM-1h-yCU" secondAttribute="leading" constant="16" id="N2B-rs-VcA"/>
                             <constraint firstItem="8F5-eX-SKg" firstAttribute="centerY" secondItem="YMM-1h-yCU" secondAttribute="centerY" id="Oli-Sm-MbY"/>
                             <constraint firstAttribute="trailing" secondItem="kz6-dO-5dv" secondAttribute="trailing" constant="8" id="WGp-v8-V9k"/>
+                            <constraint firstAttribute="trailing" secondItem="FE1-8e-0SK" secondAttribute="trailing" constant="66" id="ZhE-LN-dea"/>
                             <constraint firstItem="jWQ-5w-RE4" firstAttribute="top" secondItem="YMM-1h-yCU" secondAttribute="top" constant="8" id="dwV-L2-MI1"/>
                             <constraint firstItem="jWQ-5w-RE4" firstAttribute="leading" secondItem="YMM-1h-yCU" secondAttribute="leading" constant="16" id="ywZ-Ne-jo6"/>
                         </constraints>
@@ -108,6 +108,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="btnWidth" destination="ZhE-LN-dea" id="XNv-tJ-UOm"/>
                 <outlet property="cencelBtn" destination="8F5-eX-SKg" id="l3S-MT-Wev"/>
                 <outlet property="lookBtn" destination="FE1-8e-0SK" id="zaX-y5-xiR"/>
                 <outlet property="nameLab" destination="jWQ-5w-RE4" id="UkL-M2-PRa"/>
