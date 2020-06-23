@@ -106,16 +106,28 @@
     self.timeLab.text=[NSString stringWithFormat:@"申请时间：%@",model.createTime];
    
     if ([type isEqualToString:@"1"]) {
+        if ([model.state isEqualToString:@"6"])
+        {
+            self.lookBtn.alpha=0;
+            self.cencelBtn.alpha=0;
+        }else
+        {
             self.cencelBtn.alpha=0;
             self.btnWidth.constant=8;
         [self.lookBtn setNeedsLayout];
+        }
        }else
        {
            if ([model.state isEqualToString:@"4"]) {
                 self.cencelBtn.alpha=0;
                self.btnWidth.constant=8;
                [self.lookBtn setNeedsLayout];
-           }else
+           }else if ([model.state isEqualToString:@"6"])
+           {
+               self.lookBtn.alpha=0;
+               self.cencelBtn.alpha=0;
+           }
+           else
            {
                self.cencelBtn.alpha=1;
                self.btnWidth.constant=66;
