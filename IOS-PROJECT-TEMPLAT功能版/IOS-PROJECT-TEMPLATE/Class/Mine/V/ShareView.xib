@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KF1-h7-gD5">
                     <rect key="frame" x="300" y="0.0" width="300" height="100"/>
                     <subviews>
-                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quO-0W-9or">
+                        <button opaque="NO" tag="100" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quO-0W-9or">
                             <rect key="frame" x="120" y="20" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="2LR-gW-ZmH"/>
@@ -40,13 +40,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adi-BR-qsF">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
                     <subviews>
-                        <button opaque="NO" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYK-Rl-ZXy">
+                        <button opaque="NO" tag="99" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYK-Rl-ZXy">
                             <rect key="frame" x="120" y="20" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="RTL-HB-ZJu"/>
                                 <constraint firstAttribute="width" constant="60" id="d7v-p4-Kwd"/>
                             </constraints>
-                            <state key="normal" title="Button" image="qq"/>
+                            <state key="normal" title="Button" image="QQ"/>
                             <connections>
                                 <action selector="btnClick:" destination="KgF-Rb-znc" eventType="touchUpInside" id="SeC-8D-hE3"/>
                             </connections>
@@ -77,7 +77,7 @@
         </view>
     </objects>
     <resources>
-        <image name="qq" width="500" height="500"/>
-        <image name="vx" width="500" height="500"/>
+        <image name="QQ" width="76" height="75"/>
+        <image name="vx" width="76" height="75"/>
     </resources>
 </document>

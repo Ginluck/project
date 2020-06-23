@@ -33,7 +33,7 @@
 -(CalendarView *)cView
 {
     if (!_cView) {
-        _cView =[[CalendarView alloc]initWithFrame:CGRectMake(0, 20, Screen_Width-32, Screen_Width-52)];
+        _cView =[[CalendarView alloc]initWithFrame:CGRectMake(0, 20, Screen_Width-32, CGRectGetHeight(self.calendarView.frame))];
 //        _cView.center =CGPointMake(Screen_Width/2, Screen_Width/2-16);
     }
     return _cView;
@@ -141,6 +141,7 @@
 {
     [RequestHelp POST:JS_SIGNIN_URL parameters:@{} success:^(id result) {
         ShowMessage(result);
+         [self requestData];
     } failure:^(NSError *error) {
     }];
 }

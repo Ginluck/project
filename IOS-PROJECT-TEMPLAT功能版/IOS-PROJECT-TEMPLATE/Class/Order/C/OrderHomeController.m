@@ -15,17 +15,32 @@
 //引入地图库头文件
 #import <QMapKit/QMapKit.h>
 #import "FamilyDescController.h"
-@interface OrderHomeController ()<QMapViewDelegate,UITextFieldDelegate>
+#import "MoneyRecordViewController.h"
+#import "QiandaoView.h"
+#import "SignModel.h"
+@interface OrderHomeController ()<QMapViewDelegate,UITextFieldDelegate,QiandaoViewDelegate>
 
 @property(nonatomic,strong)NSMutableArray  * dataAry ;
-
+@property(nonatomic,strong)UIButton *  bgButton;
 @property(nonatomic,strong)NSMutableArray  * nameAry ;
 @property(nonatomic,assign)NSInteger  page;
 @property (nonatomic, strong) QMapView *mapView;
+@property(nonatomic,strong)QiandaoView * qView;
+@property(nonatomic,strong)SignModel * model;
 @end
 
 @implementation OrderHomeController
 
+-(UIButton *)bgButton
+{
+    if (!_bgButton) {
+        _bgButton =[UIButton buttonWithType:UIButtonTypeCustom];
+        _bgButton .frame =CGRectMake(0, 0, Screen_Width, Screen_Height);
+        _bgButton.backgroundColor =COLOR(0, 0, 0, 0.6);
+        //        [_bgButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _bgButton;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -42,6 +57,62 @@
     [button addTarget:self action:@selector(createFamily) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     [self requestData];
+    
+    UIButton * button1 =[UIButton buttonWithType:UIButtonTypeCustom];
+    button1.frame =CGRectMake(Screen_Width-60, K_NaviHeight+10, 50, 50);
+    [button1 setImage:KImageNamed(@"签到入口") forState:UIControlStateNormal];
+    button1.layer.cornerRadius =15.f;
+    button1.layer.masksToBounds=YES;
+    [button1 addTarget:self action:@selector(qiandao) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
+}
+
+-(void)qiandaoClose
+{
+    [self.bgButton removeFromSuperview];
+    [self.qView removeFromSuperview];
+}
+-(void)qiandaoClick
+{
+    [RequestHelp POST:JS_SIGNIN_URL parameters:@{} success:^(id result) {
+        ShowMessage(result);
+        [self qiandaoClose];
+    } failure:^(NSError *error) {
+    }];
+}
+-(void)hongbaoClick:(UIButton *)sender
+{
+    SigninChild *model =self.model.additionalSignIn[sender.tag];
+    [RequestHelp POST:JS_GETREWARD_URL parameters:@{@"consecutiveDays":model.consecutiveDays} success:^(id result) {
+        ShowMessage(result);
+        [self qiandaoClose];
+    } failure:^(NSError *error) {
+    }];
+}
+-(void)qiandao
+{
+    ShowMaskStatus(@"加载数据中");
+    [RequestHelp POST:JS_SIGNRECORD_URL parameters:@{} success:^(id result) {
+        MKLog(@"%@",result);
+        DismissHud();
+        self.model  =[SignModel yy_modelWithJSON:result];
+        [[UIApplication sharedApplication].keyWindow addSubview:self.bgButton];
+        self.qView.model =self.model;
+        [self.bgButton addSubview:self.qView];
+        
+    } failure:^(NSError *error) {
+        DismissHud();
+    }];
+}
+-(QiandaoView *)qView
+{
+    if (!_qView) {
+        _qView =[[[NSBundle mainBundle] loadNibNamed:@"QiandaoView" owner:self options:nil] firstObject];
+        _qView.delegate =self;
+        _qView.frame =CGRectMake(0, 0, 280, 386);
+        _qView.center =CGPointMake(Screen_Width/2, Screen_Height/2);
+    }
+    return _qView;
 }
 -(void)createFamily
 {

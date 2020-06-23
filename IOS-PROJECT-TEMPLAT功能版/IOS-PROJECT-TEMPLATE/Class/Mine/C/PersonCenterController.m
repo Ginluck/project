@@ -37,8 +37,23 @@
     [self.view addSubview:imageV];
     [self.view addSubview:self.MHView];
     [self addNavigationTitleView:@"我的"];
+    
+    UIButton * button1 =[UIButton buttonWithType:UIButtonTypeCustom];
+    button1.frame =CGRectMake(Screen_Width-60, K_NaviHeight+10, 50, 50);
+    [button1 setImage:KImageNamed(@"签到入口") forState:UIControlStateNormal];
+    button1.layer.cornerRadius =15.f;
+    button1.layer.masksToBounds=YES;
+    [button1 addTarget:self action:@selector(qiandao) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
    
     // Do any additional setup after loading the view.
+}
+
+-(void)qiandao
+{
+    MoneyRecordViewController * mvc= [MoneyRecordViewController new];
+    mvc.hidesBottomBarWhenPushed =YES;
+    [self.navigationController pushViewController:mvc animated:YES];
 }
 -(void)requestData
 {
@@ -219,7 +234,7 @@
 }
 -(void)GoldClick
 {
-    RecordMoneyViewController * mvc =[RecordMoneyViewController new];
+    MoneyRecordViewController * mvc =[MoneyRecordViewController new];
     mvc.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:mvc animated:YES];
 }

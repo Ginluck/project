@@ -1,29 +1,21 @@
 //
-//  MoneyCell.m
+//  QiandaoView.m
 //  IOS-PROJECT-TEMPLATE
 //
-//  Created by ginluck on 2020/6/11.
+//  Created by ginluck on 2020/6/23.
 //  Copyright © 2020年 梦境网络. All rights reserved.
 //
 
-#import "MoneyCell.h"
-@interface MoneyCell()
-
+#import "QiandaoView.h"
+@interface QiandaoView()
+@property(nonatomic,weak)IBOutlet UIView * hongBaoView;
+@property(nonatomic,weak)IBOutlet UILabel * moneyLabel;
+@property(nonatomic,weak)IBOutlet UILabel * signLabel;
+@property(nonatomic,weak)IBOutlet UIButton * signButton;
 @end
-@implementation MoneyCell
+@implementation QiandaoView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-    [self.calendarView addSubview:self.cView];
-}
--(IBAction)signClick:(id)sender
-{
-    if (self.delegate) {
-        [self.delegate signBtnClick:sender];
-    }
-}
--(void)reloadCell:(SignModel * )model
+-(void)setModel:(SignModel *)model
 {
     for (UIView * view in self.hongBaoView.subviews) {
         [view removeFromSuperview];
@@ -37,7 +29,7 @@
     [str addAttribute:NSForegroundColorAttributeName value:K_Prokect_MainColor range:NSMakeRange(4,model.signInCount.length)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(4+model.signInCount.length, 1)];
     // 设置字体
-     [str addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:24.0] range:NSMakeRange(4,model.signInCount.length)];
+    [str addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Bold" size:24.0] range:NSMakeRange(4,model.signInCount.length)];
     
     self.signLabel.attributedText =str;
     if ([model.signInType isEqualToString:@"1"])
@@ -52,23 +44,15 @@
         [self.signButton setBackgroundImage:KImageNamed(@"立即签到黄色") forState:UIControlStateNormal];;
         self.signButton.userInteractionEnabled=YES;
     }
-    NSMutableArray * ary =[NSMutableArray array];
-    for (int i=0; i<model.signInTimeList.count; i++)
-    {
-        NSString * time =model.signInTimeList[i];
-        NSDate * date =[NSDate dateWithFormat:@"yyyy-MM-dd" dateString:time];
-        [ary addObject:date];
-    }
-     self.cView.selectedAry =ary;
     
     CGFloat hongbao_width=40;
     CGFloat hongbao_height =70;
     CGFloat margin_x;
-    if (model.additionalSignIn.count>6)
+    if (model.additionalSignIn.count>5)
     {
-        margin_x =(Screen_Width -hongbao_width *6)/(7);
-        UIScrollView * scView= [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width, 90)];
-        scView.contentSize =CGSizeMake(Screen_Width+(model.additionalSignIn.count-6)*(40+margin_x)+margin_x, 0);
+        margin_x =(280 -hongbao_width *6)/(7);
+        UIScrollView * scView= [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 280, 90)];
+        scView.contentSize =CGSizeMake(280+(model.additionalSignIn.count-6)*(40+margin_x)+margin_x, 0);
         scView.showsHorizontalScrollIndicator=NO;
         [self.hongBaoView addSubview:scView];
         
@@ -98,7 +82,7 @@
     }
     else
     {
-        margin_x =(Screen_Width -hongbao_width *model.additionalSignIn.count)/(model.additionalSignIn.count+1);
+        margin_x =(280 -hongbao_width *model.additionalSignIn.count)/(model.additionalSignIn.count+1);
         for ( int i =0; i<model.additionalSignIn.count; i++)
         {
             HongBaoView * hongbao =[[HongBaoView alloc]initWithFrame:CGRectMake(margin_x+(margin_x +hongbao_width)*i, 10, hongbao_height, hongbao_width)];
@@ -112,34 +96,36 @@
             }
             else if ([child.type isEqualToString:@"2"])
             {
-                  [hongbao.action setImage:KImageNamed(@"红包打开") forState:UIControlStateNormal];
+                [hongbao.action setImage:KImageNamed(@"红包打开") forState:UIControlStateNormal];
             }
             else
             {
-                  [hongbao.action setImage:KImageNamed(@"红包灰色") forState:UIControlStateNormal];
+                [hongbao.action setImage:KImageNamed(@"红包灰色") forState:UIControlStateNormal];
             }
             [self.hongBaoView addSubview:hongbao];
         }
     }
 }
 
+
+-(IBAction)signClick:(id)sender
+{
+    if (self.delegate) {
+        [self.delegate qiandaoClick];
+    }
+}
+
 -(void)clickBag:(UIButton*)sender
 {
     if (self.delegate) {
-        [self.delegate moneyBtnClick:sender];
+        [self.delegate hongbaoClick:sender];
     }
 }
--(CalendarView *)cView
+
+-(IBAction)close:(id)sender
 {
-    if (!_cView) {
-        _cView =[[CalendarView alloc]initWithFrame:CGRectMake(15, 0, Screen_Width-30, 230)];
+    if (self.delegate) {
+        [self.delegate qiandaoClose];
     }
-    return _cView;
 }
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 @end

@@ -300,6 +300,8 @@
     
         UIImageView * la_1 =imageArr[2];
         UIImageView * la_2 =imageArr[4];
+         la_1.contentMode =UIViewContentModeScaleAspectFit;
+        la_2.contentMode =UIViewContentModeScaleAspectFit;
         [la_1 sd_setImageWithURL:[NSURL URLWithString:model.jpImgUrl]];
         [la_2 sd_setImageWithURL:[NSURL URLWithString:model.jpImgUrl]];
         [self.view addSubview:la_1];
@@ -387,6 +389,7 @@
                 UIImageView * image =[[UIImageView alloc]initWithFrame:CGRectMake(0, 0
                                                                                   , item_width, item_width)];
                 image.center =CGPointMake(model.position_x, model.position_y);
+                image.contentMode =UIViewContentModeScaleAspectFit;
                 [image sd_setImageWithURL:[NSURL URLWithString:model.jpImgUrl]];
                 image.contentMode =UIViewContentModeScaleAspectFit;
                 [self.view addSubview:image];
@@ -404,6 +407,7 @@
         self.itemChild =model;
         [self showGifByImageView];
         [self.itemImage sd_setImageWithURL:[NSURL URLWithString:model.imgUrl]];
+        self.itemImage.contentMode =UIViewContentModeScaleAspectFit;
         [self.view addSubview:self.itemImage];
         [self performSelector:@selector(remove) withObject:nil afterDelay:5.0f];
     };

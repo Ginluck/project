@@ -56,6 +56,7 @@
 		7101DBAC249235FB004DF6BD /* ShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7101DBAB249235FB004DF6BD /* ShareView.xib */; };
 		71071DEE24776D04003CAAB7 /* ApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71071DEC24776D04003CAAB7 /* ApplyController.m */; };
 		71071DEF24776D04003CAAB7 /* ApplyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71071DED24776D04003CAAB7 /* ApplyController.xib */; };
+		71179BC4249CA005008FA74A /* bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71179BC3249CA005008FA74A /* bgm.mp3 */; };
 		711B0A7C2469294C009C84DB /* IDSafeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711B0A572469294B009C84DB /* IDSafeViewController.m */; };
 		711B0A7D2469294C009C84DB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711B0A582469294B009C84DB /* SettingsViewController.m */; };
 		711B0A7E2469294C009C84DB /* PhoneChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 711B0A592469294B009C84DB /* PhoneChangeViewController.xib */; };
@@ -201,6 +202,8 @@
 		7125882B2477677100E7E50A /* FamilyDescController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712588292477677100E7E50A /* FamilyDescController.m */; };
 		7125882C2477677100E7E50A /* FamilyDescController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7125882A2477677100E7E50A /* FamilyDescController.xib */; };
 		7125FC7E247DFA53006F4B54 /* MemberDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7125FC7D247DFA53006F4B54 /* MemberDetailModel.m */; };
+		71374C4624A194DA00E49ED1 /* QiandaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71374C4524A194DA00E49ED1 /* QiandaoView.m */; };
+		71374C4824A194EF00E49ED1 /* QiandaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71374C4724A194EF00E49ED1 /* QiandaoView.xib */; };
 		71388AFA2480A28D0011E7A8 /* CitangDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71388AF92480A28D0011E7A8 /* CitangDetailModel.m */; };
 		71388AFC2480BB710011E7A8 /* 发光gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71388AFB2480BB710011E7A8 /* 发光gif.gif */; };
 		71388AFF2484DF6C0011E7A8 /* ImageBigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 71388AFE2484DF6C0011E7A8 /* ImageBigger.m */; };
@@ -633,7 +636,6 @@
 		71CBDDC024864D8600DB8A0D /* JipinSetChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CBDDBF24864D8600DB8A0D /* JipinSetChild.m */; };
 		71DA413A24970C3B00D42D55 /* RecordMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DA413824970C3B00D42D55 /* RecordMoneyViewController.m */; };
 		71DA413B24970C3B00D42D55 /* RecordMoneyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DA413924970C3B00D42D55 /* RecordMoneyViewController.xib */; };
-		71DA413D24975FC100D42D55 /* 3858567684.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 71DA413C24975FC100D42D55 /* 3858567684.mp3 */; };
 		71DA4140249B168F00D42D55 /* OpinionFeedBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DA413F249B168F00D42D55 /* OpinionFeedBackView.m */; };
 		71DA4142249B16CF00D42D55 /* OpinionFeedBackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71DA4141249B16CF00D42D55 /* OpinionFeedBackView.xib */; };
 		71DA4146249B4ADE00D42D55 /* SignModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DA4145249B4ADE00D42D55 /* SignModel.m */; };
@@ -790,6 +792,7 @@
 		71071DEB24776D04003CAAB7 /* ApplyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyController.h; sourceTree = "<group>"; };
 		71071DEC24776D04003CAAB7 /* ApplyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplyController.m; sourceTree = "<group>"; };
 		71071DED24776D04003CAAB7 /* ApplyController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyController.xib; sourceTree = "<group>"; };
+		71179BC3249CA005008FA74A /* bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm.mp3; sourceTree = "<group>"; };
 		711B0A562469294B009C84DB /* NewPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPhoneViewController.h; sourceTree = "<group>"; };
 		711B0A572469294B009C84DB /* IDSafeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDSafeViewController.m; sourceTree = "<group>"; };
 		711B0A582469294B009C84DB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -1035,6 +1038,9 @@
 		7125882A2477677100E7E50A /* FamilyDescController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyDescController.xib; sourceTree = "<group>"; };
 		7125FC7C247DFA53006F4B54 /* MemberDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberDetailModel.h; sourceTree = "<group>"; };
 		7125FC7D247DFA53006F4B54 /* MemberDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberDetailModel.m; sourceTree = "<group>"; };
+		71374C4424A194DA00E49ED1 /* QiandaoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QiandaoView.h; sourceTree = "<group>"; };
+		71374C4524A194DA00E49ED1 /* QiandaoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiandaoView.m; sourceTree = "<group>"; };
+		71374C4724A194EF00E49ED1 /* QiandaoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QiandaoView.xib; sourceTree = "<group>"; };
 		71388AF82480A28D0011E7A8 /* CitangDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitangDetailModel.h; sourceTree = "<group>"; };
 		71388AF92480A28D0011E7A8 /* CitangDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitangDetailModel.m; sourceTree = "<group>"; };
 		71388AFB2480BB710011E7A8 /* 发光gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "发光gif.gif"; sourceTree = "<group>"; };
@@ -1657,7 +1663,6 @@
 		71DA413724970C3B00D42D55 /* RecordMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordMoneyViewController.h; sourceTree = "<group>"; };
 		71DA413824970C3B00D42D55 /* RecordMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordMoneyViewController.m; sourceTree = "<group>"; };
 		71DA413924970C3B00D42D55 /* RecordMoneyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordMoneyViewController.xib; sourceTree = "<group>"; };
-		71DA413C24975FC100D42D55 /* 3858567684.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3858567684.mp3; sourceTree = "<group>"; };
 		71DA413E249B168F00D42D55 /* OpinionFeedBackView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpinionFeedBackView.h; sourceTree = "<group>"; };
 		71DA413F249B168F00D42D55 /* OpinionFeedBackView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpinionFeedBackView.m; sourceTree = "<group>"; };
 		71DA4141249B16CF00D42D55 /* OpinionFeedBackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpinionFeedBackView.xib; sourceTree = "<group>"; };
@@ -2008,41 +2013,41 @@
 		711B0B1A246929E8009C84DB /* LYSDatePickerController */ = {
 			isa = PBXGroup;
 			children = (
-				711B0B1B246929E8009C84DB /* LYSDatePickerTypeDayAndTimeDelegate.h */,
+				711B0B35246929E8009C84DB /* LYSDateBaseViewController.h */,
+				711B0B28246929E8009C84DB /* LYSDateBaseViewController.m */,
+				711B0B22246929E8009C84DB /* LYSDateBasicViewController.h */,
+				711B0B31246929E8009C84DB /* LYSDateBasicViewController.m */,
+				711B0B2F246929E8009C84DB /* LYSDateContentView.h */,
 				711B0B1C246929E8009C84DB /* LYSDateContentView.m */,
 				711B0B1D246929E8009C84DB /* LYSDateHeaderViewController.h */,
-				711B0B1E246929E8009C84DB /* LYSDatePickerLabel.h */,
-				711B0B1F246929E8009C84DB /* LYSDatePickerManager.h */,
-				711B0B20246929E8009C84DB /* LYSDatePopViewController.m */,
-				711B0B21246929E8009C84DB /* LYSDateIndicatorViewController.h */,
-				711B0B22246929E8009C84DB /* LYSDateBasicViewController.h */,
-				711B0B23246929E8009C84DB /* LYSDatePickerTypeBase.h */,
-				711B0B24246929E8009C84DB /* LYSDatePickerSelectDelegate.h */,
-				711B0B25246929E8009C84DB /* LYSDatePickerItem.h */,
-				711B0B26246929E8009C84DB /* LYSDatePickerTypeDayDelegate.h */,
-				711B0B27246929E8009C84DB /* LYSDatePickerTypeTimeDelegate.h */,
-				711B0B28246929E8009C84DB /* LYSDateBaseViewController.m */,
-				711B0B29246929E8009C84DB /* LYSDateLogicViewController.m */,
-				711B0B2A246929E8009C84DB /* LYSDatePickerHeaderView.h */,
-				711B0B2B246929E8009C84DB /* LYSDatePickerController.h */,
-				711B0B2C246929E8009C84DB /* LYSDatePickerViewController.m */,
 				711B0B2D246929E8009C84DB /* LYSDateHeaderViewController.m */,
-				711B0B2E246929E8009C84DB /* LYSDatePickerLabel.m */,
-				711B0B2F246929E8009C84DB /* LYSDateContentView.h */,
-				711B0B30246929E8009C84DB /* LYSDatePickerTypeDayAndTimeDelegate.m */,
-				711B0B31246929E8009C84DB /* LYSDateBasicViewController.m */,
+				711B0B21246929E8009C84DB /* LYSDateIndicatorViewController.h */,
 				711B0B32246929E8009C84DB /* LYSDateIndicatorViewController.m */,
-				711B0B33246929E8009C84DB /* LYSDatePopViewController.h */,
-				711B0B34246929E8009C84DB /* LYSDatePickerManager.m */,
-				711B0B35246929E8009C84DB /* LYSDateBaseViewController.h */,
-				711B0B36246929E8009C84DB /* LYSDatePickerTypeDayDelegate.m */,
-				711B0B37246929E8009C84DB /* LYSDatePickerTypeTimeDelegate.m */,
-				711B0B38246929E8009C84DB /* LYSDatePickerItem.m */,
-				711B0B39246929E8009C84DB /* LYSDatePickerTypeBase.m */,
-				711B0B3A246929E8009C84DB /* LYSDatePickerViewController.h */,
-				711B0B3B246929E8009C84DB /* LYSDatePickerController.m */,
-				711B0B3C246929E8009C84DB /* LYSDatePickerHeaderView.m */,
 				711B0B3D246929E8009C84DB /* LYSDateLogicViewController.h */,
+				711B0B29246929E8009C84DB /* LYSDateLogicViewController.m */,
+				711B0B2B246929E8009C84DB /* LYSDatePickerController.h */,
+				711B0B3B246929E8009C84DB /* LYSDatePickerController.m */,
+				711B0B2A246929E8009C84DB /* LYSDatePickerHeaderView.h */,
+				711B0B3C246929E8009C84DB /* LYSDatePickerHeaderView.m */,
+				711B0B25246929E8009C84DB /* LYSDatePickerItem.h */,
+				711B0B38246929E8009C84DB /* LYSDatePickerItem.m */,
+				711B0B1E246929E8009C84DB /* LYSDatePickerLabel.h */,
+				711B0B2E246929E8009C84DB /* LYSDatePickerLabel.m */,
+				711B0B1F246929E8009C84DB /* LYSDatePickerManager.h */,
+				711B0B34246929E8009C84DB /* LYSDatePickerManager.m */,
+				711B0B24246929E8009C84DB /* LYSDatePickerSelectDelegate.h */,
+				711B0B23246929E8009C84DB /* LYSDatePickerTypeBase.h */,
+				711B0B39246929E8009C84DB /* LYSDatePickerTypeBase.m */,
+				711B0B1B246929E8009C84DB /* LYSDatePickerTypeDayAndTimeDelegate.h */,
+				711B0B30246929E8009C84DB /* LYSDatePickerTypeDayAndTimeDelegate.m */,
+				711B0B26246929E8009C84DB /* LYSDatePickerTypeDayDelegate.h */,
+				711B0B36246929E8009C84DB /* LYSDatePickerTypeDayDelegate.m */,
+				711B0B27246929E8009C84DB /* LYSDatePickerTypeTimeDelegate.h */,
+				711B0B37246929E8009C84DB /* LYSDatePickerTypeTimeDelegate.m */,
+				711B0B3A246929E8009C84DB /* LYSDatePickerViewController.h */,
+				711B0B2C246929E8009C84DB /* LYSDatePickerViewController.m */,
+				711B0B33246929E8009C84DB /* LYSDatePopViewController.h */,
+				711B0B20246929E8009C84DB /* LYSDatePopViewController.m */,
 			);
 			path = LYSDatePickerController;
 			sourceTree = "<group>";
@@ -3111,6 +3116,9 @@
 				71DA413E249B168F00D42D55 /* OpinionFeedBackView.h */,
 				71DA413F249B168F00D42D55 /* OpinionFeedBackView.m */,
 				71DA4141249B16CF00D42D55 /* OpinionFeedBackView.xib */,
+				71374C4424A194DA00E49ED1 /* QiandaoView.h */,
+				71374C4524A194DA00E49ED1 /* QiandaoView.m */,
+				71374C4724A194EF00E49ED1 /* QiandaoView.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -3378,7 +3386,7 @@
 				71BEE55A22CB529500E1B9E3 /* Frameworks */,
 				71BEE52222CB51EB00E1B9E3 /* ViewController.h */,
 				71BEE52322CB51EB00E1B9E3 /* ViewController.m */,
-				71DA413C24975FC100D42D55 /* 3858567684.mp3 */,
+				71179BC3249CA005008FA74A /* bgm.mp3 */,
 				71BEE52D22CB51ED00E1B9E3 /* Info.plist */,
 				71BEE52822CB51ED00E1B9E3 /* Assets.xcassets */,
 			);
@@ -3972,7 +3980,6 @@
 				715EE9D224750D7A009CF31A /* alert_default@2x.png in Resources */,
 				715EED2024750E02009CF31A /* animate_00055.png in Resources */,
 				71071DEF24776D04003CAAB7 /* ApplyController.xib in Resources */,
-				71DA413D24975FC100D42D55 /* 3858567684.mp3 in Resources */,
 				715EEB9824750DDC009CF31A /* msg_recv_audio02@3x.png in Resources */,
 				715EED3724750E02009CF31A /* animate_00074.png in Resources */,
 				715EEB9724750DDC009CF31A /* msg_location_white@2x.png in Resources */,
@@ -4128,6 +4135,7 @@
 				715EED2B24750E02009CF31A /* animate_00064.png in Resources */,
 				711B0AE5246929A7009C84DB /* FamilyCreateController.xib in Resources */,
 				715EEB3624750DDB009CF31A /* pin-red.png in Resources */,
+				71179BC4249CA005008FA74A /* bgm.mp3 in Resources */,
 				715EED0724750E02009CF31A /* animate_00025.png in Resources */,
 				715EEB6924750DDC009CF31A /* chatbar_map_blue@2x.png in Resources */,
 				715EED1224750E02009CF31A /* animate_00051.png in Resources */,
@@ -4150,6 +4158,7 @@
 				715EEB4D24750DDC009CF31A /* icon_027_cover.png in Resources */,
 				71388AFC2480BB710011E7A8 /* 发光gif.gif in Resources */,
 				71E55BE6246E7CDB00255230 /* ZupuHomeCell.xib in Resources */,
+				71374C4824A194EF00E49ED1 /* QiandaoView.xib in Resources */,
 				711B0AD524692979009C84DB /* CitangCell.xib in Resources */,
 				713F31D42473888800A00867 /* AddrChooseController.xib in Resources */,
 				715EED2F24750E02009CF31A /* animate_00072.png in Resources */,
@@ -4538,6 +4547,7 @@
 				715EE9AF24750D7A009CF31A /* MWCaptionView.m in Sources */,
 				715EECF724750E02009CF31A /* ConfInviteUsersViewController.m in Sources */,
 				7101DBAA249235E3004DF6BD /* ShareView.m in Sources */,
+				71374C4624A194DA00E49ED1 /* QiandaoView.m in Sources */,
 				71005EC7246A473F002F0BF1 /* GongpinController.m in Sources */,
 				71BEE57D22CB597000E1B9E3 /* UIButton+Countdown.m in Sources */,
 				715EE9C924750D7A009CF31A /* EMRefreshTableViewController.m in Sources */,

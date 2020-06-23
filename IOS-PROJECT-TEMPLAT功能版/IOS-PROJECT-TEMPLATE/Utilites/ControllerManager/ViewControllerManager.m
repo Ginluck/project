@@ -56,11 +56,7 @@
     if (app.window.rootViewController)
     {
         TPBaseTabbarViewController *tabVC = [TPBaseTabbarViewController new];
-        UserModel * model =[[UserManager shareInstance]getUser];
-        if (!model.jzId.length) {
-            tabVC.selectedIndex =2;
-
-        }
+        tabVC.selectedIndex=0;
         app.window.rootViewController = tabVC ;
     }
 }

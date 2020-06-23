@@ -7,22 +7,25 @@
 //
 
 #import "TypeHomeController.h"
-
+#import "SignModel.h"
 #import "FamilyDetailController.h"
 #import "CitangCell.h"
 #import "ZupuHomeCell.h"
 #import "FamilyListModel.h"
 #import "CitangHeaderView.h"
-
+#import "MoneyRecordViewController.h"
 #import "NSDate+CommonDate.h"
 #import "OpinionFeedBackView.h"
-@interface TypeHomeController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,OpinionViewDelegate>
+#import "QiandaoView.h"
+@interface TypeHomeController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,QiandaoViewDelegate,OpinionViewDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSMutableArray  * dataAry ;
 @property(nonatomic,assign)NSInteger  page;
 @property(nonatomic,strong)CitangHeaderView * headerView;
 @property(nonatomic,strong)UIButton *  bgButton;
 @property(nonatomic,strong)OpinionFeedBackView  * oView;
+@property(nonatomic,strong)QiandaoView * qView;
+@property(nonatomic,strong)SignModel * model;
 @end
 
 @implementation TypeHomeController
@@ -60,8 +63,66 @@
 
     }];
     
+    UIButton * button1 =[UIButton buttonWithType:UIButtonTypeCustom];
+    button1.frame =CGRectMake(Screen_Width-60, K_NaviHeight+10, 50, 50);
+    [button1 setImage:KImageNamed(@"签到入口") forState:UIControlStateNormal];
+    button1.layer.cornerRadius =15.f;
+    button1.layer.masksToBounds=YES;
+    [button1 addTarget:self action:@selector(qiandao) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
+    
 
 //     Do any additional setup after loading the view from its nib.
+}
+
+
+
+-(void)qiandaoClose
+{
+    [self.bgButton removeFromSuperview];
+    [self.qView removeFromSuperview];
+}
+-(void)qiandaoClick
+{
+    [RequestHelp POST:JS_SIGNIN_URL parameters:@{} success:^(id result) {
+        ShowMessage(result);
+        [self qiandaoClose];
+    } failure:^(NSError *error) {
+    }];
+}
+-(void)hongbaoClick:(UIButton *)sender
+{
+    SigninChild *model =self.model.additionalSignIn[sender.tag];
+    [RequestHelp POST:JS_GETREWARD_URL parameters:@{@"consecutiveDays":model.consecutiveDays} success:^(id result) {
+        ShowMessage(result);
+        [self qiandaoClose];
+    } failure:^(NSError *error) {
+    }];
+}
+-(void)qiandao
+{
+    ShowMaskStatus(@"加载数据中");
+    [RequestHelp POST:JS_SIGNRECORD_URL parameters:@{} success:^(id result) {
+        MKLog(@"%@",result);
+        DismissHud();
+        self.model  =[SignModel yy_modelWithJSON:result];
+        [[UIApplication sharedApplication].keyWindow addSubview:self.bgButton];
+        self.qView.model =self.model;
+        [self.bgButton addSubview:self.qView];
+        
+    } failure:^(NSError *error) {
+        DismissHud();
+    }];
+}
+-(QiandaoView *)qView
+{
+    if (!_qView) {
+        _qView =[[[NSBundle mainBundle] loadNibNamed:@"QiandaoView" owner:self options:nil] firstObject];
+        _qView.delegate =self;
+        _qView.frame =CGRectMake(0, 0, 280, 386);
+        _qView.center =CGPointMake(Screen_Width/2, Screen_Height/2);
+    }
+    return _qView;
 }
 
 -(CitangHeaderView *)headerView
@@ -105,10 +166,10 @@
         if (!self.oView.feedView.text.length) {
             ShowMessage(@"请输入反馈意见");return;
         }
-        [RequestHelp POST:JS_FEEDBACK_URL parameters:@{@"content":self.oView.feedView.text,@"userUserId":model.id} success:^(id result) {
+        [RequestHelp POST:JS_FEEDBACK_URL parameters:@{@"content":self.oView.feedView.text,@"userUserId":model.id,@"type":@"1"} success:^(id result) {
             DLog(@"%@",result);
             ShowMessage(@"反馈成功");
-            NSDictionary * dic=@{@"launchTime":[UIUtils getCurrentTimes],@"isOut":@"1"};
+            NSDictionary * dic=@{@"launchTime":[UIUtils getCurrentTimes]};
             [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"launch_Dic"];
             [self.oView removeFromSuperview];
             [self.bgButton removeFromSuperview];
@@ -118,7 +179,7 @@
     }
     else
     {
-        NSDictionary * dic=@{@"launchTime":[UIUtils getCurrentTimes],@"isOut":@"0"};
+        NSDictionary * dic=@{@"launchTime":[UIUtils getCurrentTimes]};
         [[NSUserDefaults standardUserDefaults]setObject:dic forKey:@"launch_Dic"];
         [self.oView removeFromSuperview];
         [self.bgButton removeFromSuperview];
@@ -240,10 +301,6 @@
 {
     //      NSDictionary * launchDic =@{@"launchTime":launchTime,@"isOut":@"0"};
     NSDictionary * dic =[[NSUserDefaults standardUserDefaults]objectForKey:@"launch_Dic"];
-    if ([dic[@"isOut"] isEqualToString:@"1"])
-    {
-        return;
-    }
     //    NSCalendarUnitYear| NSCalendarUnitMonth| NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|
     NSString  * oldTime =dic[@"launchTime"];
     NSString *  nTime =[UIUtils getCurrentTimes];
@@ -255,9 +312,25 @@
     NSDateComponents *d = [cal components:unitFlags fromDate:oldDate toDate:nDate options:0];
     if ([d second]>15)
     {
-        [[[UIApplication sharedApplication]keyWindow]addSubview:self.bgButton];
-        [self.bgButton addSubview:self.oView];
+        [self requestData];
     }
+}
+
+
+-(void)requestData
+{
+    [RequestHelp POST:JS_ISFEEDBACK_URL parameters:@{} success:^(id result) {
+        NSInteger value =[result integerValue];
+        if (value>0)
+        {
+            return ;
+        }
+        else
+        {
+            [[[UIApplication sharedApplication]keyWindow]addSubview:self.bgButton];
+            [self.bgButton addSubview:self.oView];
+        }
+    } failure:^(NSError *error) {}];
 }
 -(void)viewWillAppear:(BOOL)animated
 {

@@ -41,6 +41,7 @@
         jipin.clickBtn.row =row;
         jipin.clickBtn.tag =i;
         [jipin.proImage sd_setImageWithURL:[NSURL URLWithString:child.imgUrl]];
+        jipin.proImage.contentMode =UIViewContentModeScaleAspectFit;
         jipin.topLab.text =child.name;
         jipin.bottomLab.text =child.price;
         [jipin.clickBtn addTarget:self action:@selector(jpClick:) forControlEvents:UIControlEventTouchUpInside];

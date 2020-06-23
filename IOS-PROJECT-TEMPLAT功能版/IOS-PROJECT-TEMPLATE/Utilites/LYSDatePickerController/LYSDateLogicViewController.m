@@ -27,7 +27,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.fromYear = 1970;                                 // 默认开始年份
+        self.fromYear = 1800;                                 // 默认开始年份
         self.toYear = 2070;                                   // 默认结束年份
         self.pickType = LYSDatePickerTypeDayAndTime;          // 默认选择器类型
         self.selectDate = [NSDate date];                      // 默认选中日期

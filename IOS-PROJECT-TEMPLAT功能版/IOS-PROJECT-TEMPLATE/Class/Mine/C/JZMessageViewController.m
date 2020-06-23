@@ -132,7 +132,7 @@
     {
           [arr addObject:@"发起聊天"];
     }
-    if ([user.userName isEqualToString:member.name])
+    if ([user.realName isEqualToString:member.name])
     {
           [arr addObject:@"确认自己"];
     }

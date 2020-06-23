@@ -89,6 +89,7 @@
        
        PwdView.clipsToBounds = NO;
 }
+
 -(void)setLoginBtn:(UIButton *)LoginBtn
 {
           LoginBtn.layer.masksToBounds=YES;

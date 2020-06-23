@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "QQ@3x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "红包打开.png",
       "scale" : "2x"
     },
     {
