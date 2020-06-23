@@ -19,7 +19,9 @@
 #import "NSDate+CommonDate.h"
 #import "OpinionFeedBackView.h"
 #import "MoneyRecordViewController.h"
-@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,OpinionViewDelegate>
+#import "QiandaoView.h"
+#import "SignModel.h"
+@interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate,QiandaoViewDelegate,OpinionViewDelegate>
 @property(nonatomic,strong)UITableView * tableView;
 @property(nonatomic,strong)NSMutableArray  * dataAry ;
 @property(nonatomic,assign)NSInteger  page;
@@ -27,6 +29,8 @@
 @property(nonatomic,strong)UIButton *  bgButton;
 @property(nonatomic,strong)OpinionFeedBackView  * oView;
 @property(nonatomic,strong)AVAudioPlayer *player;
+@property(nonatomic,strong)QiandaoView * qView;
+@property(nonatomic,strong)SignModel * model;
 @end
 
 @implementation HomeViewController
@@ -72,15 +76,44 @@
     [button1 addTarget:self action:@selector(qiandao) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button1];
     
-//      [EOCWeChatFloatingBtn show];
-    //     Do any additional setup after loading the view from its nib.
-}
 
+}
+-(void)qiandaoClose
+{
+    [self.bgButton removeFromSuperview];
+    [self.qView removeFromSuperview];
+}
+-(void)qiandaoClick
+{
+    [RequestHelp POST:JS_SIGNIN_URL parameters:@{} success:^(id result) {
+        ShowMessage(result);
+        [self qiandaoClose];
+    } failure:^(NSError *error) {
+    }];
+}
+-(void)hongbaoClick:(UIButton *)sender
+{
+    SigninChild *model =self.model.additionalSignIn[sender.tag];
+    [RequestHelp POST:JS_GETREWARD_URL parameters:@{@"consecutiveDays":model.consecutiveDays} success:^(id result) {
+        ShowMessage(result);
+        [self qiandaoClose];
+    } failure:^(NSError *error) {
+    }];
+}
 -(void)qiandao
 {
-    MoneyRecordViewController * mvc= [MoneyRecordViewController new];
-    mvc.hidesBottomBarWhenPushed =YES;
-    [self.navigationController pushViewController:mvc animated:YES];
+        ShowMaskStatus(@"加载数据中");
+        [RequestHelp POST:JS_SIGNRECORD_URL parameters:@{} success:^(id result) {
+            MKLog(@"%@",result);
+            DismissHud();
+            self.model  =[SignModel yy_modelWithJSON:result];
+            [[UIApplication sharedApplication].keyWindow addSubview:self.bgButton];
+            self.qView.model =self.model;
+            [self.bgButton addSubview:self.qView];
+
+        } failure:^(NSError *error) {
+            DismissHud();
+        }];
 }
 -(void)opinionViewClick:(UIButton *)button
 {
@@ -158,6 +191,16 @@
         _headerView =[[[NSBundle mainBundle] loadNibNamed:@"HomeTableHeaderView" owner:self options:nil] firstObject];
     }
     return _headerView;
+}
+-(QiandaoView *)qView
+{
+    if (!_qView) {
+        _qView =[[[NSBundle mainBundle] loadNibNamed:@"QiandaoView" owner:self options:nil] firstObject];
+        _qView.delegate =self;
+        _qView.frame =CGRectMake(0, 0, 280, 386);
+        _qView.center =CGPointMake(Screen_Width/2, Screen_Height/2);
+    }
+    return _qView;
 }
 
 -(OpinionFeedBackView *)oView

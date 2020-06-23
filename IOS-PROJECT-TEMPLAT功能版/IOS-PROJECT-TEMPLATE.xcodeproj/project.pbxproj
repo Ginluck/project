@@ -199,6 +199,8 @@
 		7125882B2477677100E7E50A /* FamilyDescController.m in Sources */ = {isa = PBXBuildFile; fileRef = 712588292477677100E7E50A /* FamilyDescController.m */; };
 		7125882C2477677100E7E50A /* FamilyDescController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7125882A2477677100E7E50A /* FamilyDescController.xib */; };
 		7125FC7E247DFA53006F4B54 /* MemberDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7125FC7D247DFA53006F4B54 /* MemberDetailModel.m */; };
+		71374C4624A194DA00E49ED1 /* QiandaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71374C4524A194DA00E49ED1 /* QiandaoView.m */; };
+		71374C4824A194EF00E49ED1 /* QiandaoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71374C4724A194EF00E49ED1 /* QiandaoView.xib */; };
 		71388AFA2480A28D0011E7A8 /* CitangDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71388AF92480A28D0011E7A8 /* CitangDetailModel.m */; };
 		71388AFC2480BB710011E7A8 /* 发光gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 71388AFB2480BB710011E7A8 /* 发光gif.gif */; };
 		71388AFF2484DF6C0011E7A8 /* ImageBigger.m in Sources */ = {isa = PBXBuildFile; fileRef = 71388AFE2484DF6C0011E7A8 /* ImageBigger.m */; };
@@ -1028,6 +1030,9 @@
 		7125882A2477677100E7E50A /* FamilyDescController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FamilyDescController.xib; sourceTree = "<group>"; };
 		7125FC7C247DFA53006F4B54 /* MemberDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberDetailModel.h; sourceTree = "<group>"; };
 		7125FC7D247DFA53006F4B54 /* MemberDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberDetailModel.m; sourceTree = "<group>"; };
+		71374C4424A194DA00E49ED1 /* QiandaoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QiandaoView.h; sourceTree = "<group>"; };
+		71374C4524A194DA00E49ED1 /* QiandaoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiandaoView.m; sourceTree = "<group>"; };
+		71374C4724A194EF00E49ED1 /* QiandaoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QiandaoView.xib; sourceTree = "<group>"; };
 		71388AF82480A28D0011E7A8 /* CitangDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitangDetailModel.h; sourceTree = "<group>"; };
 		71388AF92480A28D0011E7A8 /* CitangDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitangDetailModel.m; sourceTree = "<group>"; };
 		71388AFB2480BB710011E7A8 /* 发光gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "发光gif.gif"; sourceTree = "<group>"; };
@@ -3103,6 +3108,9 @@
 				71DA413E249B168F00D42D55 /* OpinionFeedBackView.h */,
 				71DA413F249B168F00D42D55 /* OpinionFeedBackView.m */,
 				71DA4141249B16CF00D42D55 /* OpinionFeedBackView.xib */,
+				71374C4424A194DA00E49ED1 /* QiandaoView.h */,
+				71374C4524A194DA00E49ED1 /* QiandaoView.m */,
+				71374C4724A194EF00E49ED1 /* QiandaoView.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -4136,6 +4144,7 @@
 				715EEB4D24750DDC009CF31A /* icon_027_cover.png in Resources */,
 				71388AFC2480BB710011E7A8 /* 发光gif.gif in Resources */,
 				71E55BE6246E7CDB00255230 /* ZupuHomeCell.xib in Resources */,
+				71374C4824A194EF00E49ED1 /* QiandaoView.xib in Resources */,
 				711B0AD524692979009C84DB /* CitangCell.xib in Resources */,
 				713F31D42473888800A00867 /* AddrChooseController.xib in Resources */,
 				715EED2F24750E02009CF31A /* animate_00072.png in Resources */,
@@ -4523,6 +4532,7 @@
 				715EE9AF24750D7A009CF31A /* MWCaptionView.m in Sources */,
 				715EECF724750E02009CF31A /* ConfInviteUsersViewController.m in Sources */,
 				7101DBAA249235E3004DF6BD /* ShareView.m in Sources */,
+				71374C4624A194DA00E49ED1 /* QiandaoView.m in Sources */,
 				71005EC7246A473F002F0BF1 /* GongpinController.m in Sources */,
 				71BEE57D22CB597000E1B9E3 /* UIButton+Countdown.m in Sources */,
 				715EE9C924750D7A009CF31A /* EMRefreshTableViewController.m in Sources */,

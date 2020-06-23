@@ -16,17 +16,31 @@
 #import <QMapKit/QMapKit.h>
 #import "FamilyDescController.h"
 #import "MoneyRecordViewController.h"
-@interface OrderHomeController ()<QMapViewDelegate,UITextFieldDelegate>
+#import "QiandaoView.h"
+#import "SignModel.h"
+@interface OrderHomeController ()<QMapViewDelegate,UITextFieldDelegate,QiandaoViewDelegate>
 
 @property(nonatomic,strong)NSMutableArray  * dataAry ;
-
+@property(nonatomic,strong)UIButton *  bgButton;
 @property(nonatomic,strong)NSMutableArray  * nameAry ;
 @property(nonatomic,assign)NSInteger  page;
 @property (nonatomic, strong) QMapView *mapView;
+@property(nonatomic,strong)QiandaoView * qView;
+@property(nonatomic,strong)SignModel * model;
 @end
 
 @implementation OrderHomeController
 
+-(UIButton *)bgButton
+{
+    if (!_bgButton) {
+        _bgButton =[UIButton buttonWithType:UIButtonTypeCustom];
+        _bgButton .frame =CGRectMake(0, 0, Screen_Width, Screen_Height);
+        _bgButton.backgroundColor =COLOR(0, 0, 0, 0.6);
+        //        [_bgButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _bgButton;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -52,11 +66,53 @@
     [button1 addTarget:self action:@selector(qiandao) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button1];
 }
+
+-(void)qiandaoClose
+{
+    [self.bgButton removeFromSuperview];
+    [self.qView removeFromSuperview];
+}
+-(void)qiandaoClick
+{
+    [RequestHelp POST:JS_SIGNIN_URL parameters:@{} success:^(id result) {
+        ShowMessage(result);
+        [self qiandaoClose];
+    } failure:^(NSError *error) {
+    }];
+}
+-(void)hongbaoClick:(UIButton *)sender
+{
+    SigninChild *model =self.model.additionalSignIn[sender.tag];
+    [RequestHelp POST:JS_GETREWARD_URL parameters:@{@"consecutiveDays":model.consecutiveDays} success:^(id result) {
+        ShowMessage(result);
+        [self qiandaoClose];
+    } failure:^(NSError *error) {
+    }];
+}
 -(void)qiandao
 {
-    MoneyRecordViewController * mvc= [MoneyRecordViewController new];
-    mvc.hidesBottomBarWhenPushed =YES;
-    [self.navigationController pushViewController:mvc animated:YES];
+    ShowMaskStatus(@"加载数据中");
+    [RequestHelp POST:JS_SIGNRECORD_URL parameters:@{} success:^(id result) {
+        MKLog(@"%@",result);
+        DismissHud();
+        self.model  =[SignModel yy_modelWithJSON:result];
+        [[UIApplication sharedApplication].keyWindow addSubview:self.bgButton];
+        self.qView.model =self.model;
+        [self.bgButton addSubview:self.qView];
+        
+    } failure:^(NSError *error) {
+        DismissHud();
+    }];
+}
+-(QiandaoView *)qView
+{
+    if (!_qView) {
+        _qView =[[[NSBundle mainBundle] loadNibNamed:@"QiandaoView" owner:self options:nil] firstObject];
+        _qView.delegate =self;
+        _qView.frame =CGRectMake(0, 0, 280, 386);
+        _qView.center =CGPointMake(Screen_Width/2, Screen_Height/2);
+    }
+    return _qView;
 }
 -(void)createFamily
 {
