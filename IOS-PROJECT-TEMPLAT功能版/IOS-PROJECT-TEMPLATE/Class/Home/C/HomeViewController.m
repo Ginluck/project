@@ -158,7 +158,7 @@
             avc.hidesBottomBarWhenPushed =YES;
             [self.navigationController pushViewController:avc animated:YES];
         }
-        else if ([title isEqualToString:@"家族私人祠堂"])
+        else if ([title isEqualToString:@"创建家族私人祠堂"])
         {
             AddFamilyCitangController * avc =[AddFamilyCitangController new];
             avc.hidesBottomBarWhenPushed =YES;
@@ -358,7 +358,7 @@
     NSCalendar *cal=[NSCalendar currentCalendar];
     unsigned int unitFlags = NSCalendarUnitSecond;
     NSDateComponents *d = [cal components:unitFlags fromDate:oldDate toDate:nDate options:0];
-    if ([d second]>15)
+    if ([d second]>300)
     {
         [self requestData];
     }

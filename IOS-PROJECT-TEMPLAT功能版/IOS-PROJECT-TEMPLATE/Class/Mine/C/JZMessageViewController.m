@@ -126,17 +126,17 @@
     UserModel *user =[[UserManager shareInstance]getUser];
     FamilyTreeModel *model =self.dataAry[button.row];
     FamilyTreeMember * member=(FamilyTreeMember*)model.list[button.tag];
-    NSMutableArray * arr =[NSMutableArray arrayWithArray:@[@"查看成员信息",@"认祖确认"]];
+    NSMutableArray * arr =[NSMutableArray arrayWithArray:@[@"查看成员信息",@"认祖确认",@"确认自己"]];
     
     if (member.userPhone.length && ![member.userPhone isEqualToString:user.userPhone])
     {
           [arr addObject:@"发起聊天"];
     }
-    if ([user.realName isEqualToString:member.name])
-    {
-          [arr addObject:@"确认自己"];
-    }
-  
+//    if ([user.realName isEqualToString:member.name])
+//    {
+//          [arr addObject:@"确认自己"];
+//    }
+//
     SJActionSheet *actionSheet = [[SJActionSheet alloc] initSheetWithTitle:nil style:SJSheetStyleDefault itemTitles:arr];
     actionSheet.itemTextFont =MKFont(13);
     actionSheet.cancelTextFont =MKFont(13);

@@ -45,18 +45,34 @@
         [attributedString2 addAttribute:NSForegroundColorAttributeName value:[UIColor darkTextColor] range:NSMakeRange(2, 4)];
         
         self.xieyiLab.attributedText = attributedString2;
+    
+//       self.xieyiLab.wy_enabledClickEffect = NO;
+    [self.xieyiLab addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTap:)]];
+
     //    WS(weakSelf);
-        [self.xieyiLab wy_clickRichTextWithStrings:@[@"《协议》"] clickAction:^(NSString *string, NSRange range, NSInteger index) {
-            NSString *message = [NSString stringWithFormat:@"点击了“%@”字符\nrange: %@\nindex: %ld",string,NSStringFromRange(range),(long)index];
-            NSLog(@"messge = %@",message);
-PolicyViewController *PVC =[PolicyViewController new];
-   PVC.UrlStr = self.userAgreement;
-  PVC.title =@"用户协议";
-[self.navigationController pushViewController:PVC animated:YES];
-        }];
+    self.xieyiLab.userInteractionEnabled = YES;
+//        [self.xieyiLab wy_clickRichTextWithStrings:@[@"《协议》"] clickAction:^(NSString *string, NSRange range, NSInteger index) {
+//            NSString *message = [NSString stringWithFormat:@"点击了“%@”字符\nrange: %@\nindex: %ld",string,NSStringFromRange(range),(long)index];
+//            NSLog(@"messge = %@",message);
+//           PolicyViewController *PVC =[PolicyViewController new];
+//            PVC.UrlStr = self.userAgreement;
+//            [PVC addNavigationTitleView:@"用户协议"];;
+//[self.navigationController pushViewController:PVC animated:YES];
+    
+//        }];
         //设置是否有点击效果，默认是YES
-        self.xieyiLab.wy_enabledClickEffect = NO;
+    
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)labelTap:(UIGestureRecognizer*)guesture
+{
+//    NSString *message = [NSString stringWithFormat:@"点击了“%@”字符\nrange: %@\nindex: %ld",string,NSStringFromRange(range),(long)index];
+//    NSLog(@"messge = %@",message);
+    PolicyViewController *PVC =[PolicyViewController new];
+    PVC.UrlStr = self.userAgreement;
+    [PVC addNavigationTitleView:@"用户协议"];;
+    [self.navigationController pushViewController:PVC animated:YES];
 }
 -(void)postdata
 {

@@ -495,6 +495,9 @@
 
         [self.view addSubview:image];
         _jisiImage =image;
+    if (_jisiImage==nil) {
+        return;
+    }
     UITapGestureRecognizer *tap  = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(magnifyImage)];
     [image addGestureRecognizer:tap];
 

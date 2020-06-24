@@ -310,7 +310,7 @@
     NSCalendar *cal=[NSCalendar currentCalendar];
     unsigned int unitFlags = NSCalendarUnitSecond;
     NSDateComponents *d = [cal components:unitFlags fromDate:oldDate toDate:nDate options:0];
-    if ([d second]>15)
+    if ([d second]>300)
     {
         [self requestData];
     }

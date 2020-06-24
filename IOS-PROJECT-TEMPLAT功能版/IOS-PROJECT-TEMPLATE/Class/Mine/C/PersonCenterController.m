@@ -111,14 +111,11 @@
             case 1:
             {
               //供奉记录
-                               if (model.jzId==nil) {
-                                   ShowMessage(@"您还没有家族");
-                               }else
-                               {
-                                   GongFengRecordViewController *GFRVC=[GongFengRecordViewController new];
+           
+                    GongFengRecordViewController *GFRVC=[GongFengRecordViewController new];
                                                   GFRVC.hidesBottomBarWhenPushed=YES;
                                                   [self.navigationController pushViewController:GFRVC animated:YES];
-                               }
+    
                
             }
                 break;

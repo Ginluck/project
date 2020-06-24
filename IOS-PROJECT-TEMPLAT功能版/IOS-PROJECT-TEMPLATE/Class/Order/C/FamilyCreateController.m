@@ -243,27 +243,27 @@
         ShowMessage(@"创建成功");
         UserModel * model =[[UserManager shareInstance]getUser];
         model.patriarch =@"1";
-//        if (!model.jzId.length)
-//        {
-//               model.jzId =(NSString*)result;
-//        }
-//        else
-//        {
-//            if ([model.jzId containsString:@","]) {
-//                 NSMutableArray  * arr =  [NSMutableArray arrayWithArray: [model.jzId componentsSeparatedByString:@","]];
-//                [arr  addObject:result];
-//                model.jzId =[arr componentsJoinedByString:@","];
-//            }
-//            else
-//            {
-//                NSMutableArray * arr =[NSMutableArray array];
-//                [arr addObject:model.jzId];
-//                [arr addObject:result];
-//                model.jzId =[arr componentsJoinedByString:@","];
-//            }
-//           
-//        }
-//     
+        if (!model.jzId.length)
+        {
+               model.jzId =(NSString*)result;
+        }
+        else
+        {
+            if ([model.jzId containsString:@","]) {
+                 NSMutableArray  * arr =  [NSMutableArray arrayWithArray: [model.jzId componentsSeparatedByString:@","]];
+                [arr  addObject:result];
+                model.jzId =[arr componentsJoinedByString:@","];
+            }
+            else
+            {
+                NSMutableArray * arr =[NSMutableArray array];
+                [arr addObject:model.jzId];
+                [arr addObject:result];
+                model.jzId =[arr componentsJoinedByString:@","];
+            }
+           
+        }
+     
         [[UserManager shareInstance]saveUser:model];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
