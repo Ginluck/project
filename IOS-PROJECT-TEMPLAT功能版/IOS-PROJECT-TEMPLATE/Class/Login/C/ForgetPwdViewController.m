@@ -13,7 +13,7 @@
 #import "NSString+Encryption.h"
 #import "JKCountDownButton.h"
 @interface ForgetPwdViewController ()
-
+@property(nonatomic,strong)NSString *ImgStr;
 @end
 
 @implementation ForgetPwdViewController
@@ -24,6 +24,12 @@
        [self.PwdTF  addTarget:self action:@selector(passwordTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
        self.NavHeight.constant =kNavagationBarH;
           [self.NavView setNeedsLayout];
+    [RequestHelp POST:getImgCode_url parameters:@{} success:^(id result) {
+        [self.CodeBtn setBackgroundImage:[self stringToImage:result[@"data"]] forState:UIControlStateNormal ];
+      self.ImgStr=result[@"imgCodeKey"];
+    } failure:^(NSError *error) {
+
+    }];
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -128,7 +134,7 @@
                ShowMessage(@"密码不能少于8位");
               return;
           }
-    NSDictionary * param  =@{@"userPhone":self.NumberTF.text,@"password":[self.PwdTF.text encryptAESWithkey:[UIUtils getCurrentTimes]],@"validCode":self.CodeTF.text};
+    NSDictionary * param  =@{@"userPhone":self.NumberTF.text,@"password":[self.PwdTF.text encryptAESWithkey:[UIUtils getCurrentTimes]],@"validCode":self.CodeTF.text,@"imgCodeKey":self.ImgStr};
     [RequestHelp POST:UPDATE_WJ_url parameters:param success:^(id result) {
         DLog(@"%@",result);
         ShowMessage(@"修改成功");
@@ -141,28 +147,34 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (IBAction)GetCodeClick:(JKCountDownButton *)sender {
-    if (![UIUtils isValidateMobile:self.NumberTF.text]) {
-        ShowMessage(@"请输入正确的手机号");
-        return;
-    }
-
-    WS(weakSelf);
-    NSDictionary *dicParams = @{@"userPhone":self.NumberTF.text,@"codeType":@"12"};
-    
-    [RequestHelp POST:GETSECURITY_url parameters:dicParams success:^(id result) {
-        weakSelf.CodeBtn.enabled = NO;
-        [weakSelf.CodeBtn startWithSecond:60];
-        [weakSelf.CodeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
-            NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
-            return title;
-        }];
-        [weakSelf.CodeBtn didFinished:^NSString *(JKCountDownButton *countDownButton, int second) {
-            countDownButton.enabled = YES;
-            return @"重新获取";
-        }];
+    [RequestHelp POST:getImgCode_url parameters:@{} success:^(id result) {
+        [self.CodeBtn setBackgroundImage:[self stringToImage:result[@"data"]] forState:UIControlStateNormal ];
+      self.ImgStr=result[@"imgCodeKey"];
     } failure:^(NSError *error) {
-        
+
     }];
+//    if (![UIUtils isValidateMobile:self.NumberTF.text]) {
+//        ShowMessage(@"请输入正确的手机号");
+//        return;
+//    }
+//
+//    WS(weakSelf);
+//    NSDictionary *dicParams = @{@"userPhone":self.NumberTF.text,@"codeType":@"12"};
+//
+//    [RequestHelp POST:GETSECURITY_url parameters:dicParams success:^(id result) {
+//        weakSelf.CodeBtn.enabled = NO;
+//        [weakSelf.CodeBtn startWithSecond:60];
+//        [weakSelf.CodeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
+//            NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
+//            return title;
+//        }];
+//        [weakSelf.CodeBtn didFinished:^NSString *(JKCountDownButton *countDownButton, int second) {
+//            countDownButton.enabled = YES;
+//            return @"重新获取";
+//        }];
+//    } failure:^(NSError *error) {
+//
+//    }];
     
 }
 - (IBAction)HideClick:(UIButton *)sender {
@@ -175,7 +187,17 @@
          self.PwdTF.secureTextEntry=YES;
     }
 }
+- (UIImage *)stringToImage:(NSString *)str
 
+{
+
+    NSData * imageData =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
+
+    UIImage *photo = [UIImage imageWithData:imageData ];
+
+    return photo;
+
+}
 /*
 #pragma mark - Navigation
 

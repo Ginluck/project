@@ -10,13 +10,13 @@
 #define APIString_h
 //192.168.0.123 121.36.59.7
 
-//#define SERVER_URL @"http://192.168.0.104:8085/"
+#define SERVER_URL @"http://192.168.0.104:8085/"
 //#define SERVER_URL @"http://192.168.0.2:8085/"
-#define SERVER_URL @"http://121.36.59.7:8085/"
+//#define SERVER_URL @"http://121.36.59.7:8085/"
 
-//#define IMAGE_URL @"http://192.168.0.104:8085/appUpload/FILE_UPLOAD"
+#define IMAGE_URL @"http://192.168.0.104:8085/appUpload/FILE_UPLOAD"
 //#define IMAGE_URL @"http://192.168.0.2:8085/appUpload/FILE_UPLOAD"
-#define IMAGE_URL @"http://121.36.59.7:8085/appUpload/FILE_UPLOAD"
+//#define IMAGE_URL @"http://121.36.59.7:8085/appUpload/FILE_UPLOAD"
 
 
 /**
@@ -29,7 +29,7 @@
 
 #define  GETSECURITYCODE_url  @"userApp/GETSECURITYCODE"
 
-
+#define  getImgCode_url  @"userApp/getImgCode"
 #define  GETSECURITY_url  @"userApp/GETSECURITY"
 
 //退出登录
