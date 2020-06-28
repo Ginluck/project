@@ -152,10 +152,10 @@
 -(void)refreshPostData
 {
     UserModel * model =[[UserManager shareInstance]getUser];
-    if (model.patriarch ==nil) {
-        [ViewControllerManager showLoginViewController];
-        return;
-    }
+//    if (model.patriarch ==nil) {
+//        [ViewControllerManager showLoginViewController];
+//        return;
+//    }
     NSDictionary * param ;
     if ([model.patriarch isEqualToString:@"1"]&&[self.TypeStr isEqualToString:@"1"]) { 
         param =@{@"pageNum":@(self.page),@"pageRow":@"10",@"type":@"1"};

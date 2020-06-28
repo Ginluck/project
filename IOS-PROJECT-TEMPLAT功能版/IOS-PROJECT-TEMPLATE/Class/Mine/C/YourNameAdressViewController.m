@@ -128,7 +128,7 @@
 //                        self.lat =[NSString stringWithFormat:@"%f",code.location.latitude];
                         self.AddressLab.text=code.title;
                     }
-                    self.AddressLab.text=@"河北省石家庄市长安区裕华东路123号";
+//                    self.AddressLab.text=@"河北省石家庄市长安区裕华东路123号";
                   
                 };
                 [self.navigationController pushViewController:avc animated:YES];
@@ -223,6 +223,7 @@
     NSData * data =UIImagePNGRepresentation(image);
     [RequestHelp uploadPhotoData:data success:^(id result) {
         DLog(@"%@",result);
+        DismissHud();
         self.HeadImgStr=result[@"url"];
          self.HeadImg.image=image;
     } failure:^(NSError *error) {

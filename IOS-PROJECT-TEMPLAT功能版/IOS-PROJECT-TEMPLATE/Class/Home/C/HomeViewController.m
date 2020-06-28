@@ -67,6 +67,10 @@
     [self.view addSubview:button];
     
     
+
+    
+    
+    
     
     UIButton * button1 =[UIButton buttonWithType:UIButtonTypeCustom];
     button1.frame =CGRectMake(Screen_Width-60, K_NaviHeight+10, 50, 50);
@@ -332,6 +336,7 @@
             DLog(@"%@",result);
             [self.dataAry addObjectsFromArray:[NSArray yy_modelArrayWithClass:[CitangListModel class] json:result[@"list"]]];
             if (self.dataAry.count==0) {
+                  ShowMessage(@"您还没有家族，请创建或者寻找家族");
                 [self.tabBarController setSelectedIndex:2];
                 return ;
             }

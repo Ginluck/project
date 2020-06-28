@@ -287,6 +287,7 @@
         DLog(@"%@",result);
         [self.dataAry addObjectsFromArray:[NSArray yy_modelArrayWithClass:[FamilyListModel class] json:result[@"list"]]];
         if (self.dataAry.count==0) {
+            ShowMessage(@"您还没有家族，请创建或者寻找家族");
             [self.tabBarController setSelectedIndex:2];
             return ;
         }

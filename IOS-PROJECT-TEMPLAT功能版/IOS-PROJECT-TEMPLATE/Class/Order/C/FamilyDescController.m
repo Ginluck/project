@@ -13,7 +13,7 @@
 @property(nonatomic,weak)IBOutlet UITextField * nameTF;
 @property(nonatomic,weak)IBOutlet UIButton * detailAddr;
 @property(nonatomic,weak)IBOutlet UITextView * contentTV;
-
+@property(nonatomic,strong)NSMutableArray  * dataAry ;
 @property(nonatomic,weak)IBOutlet UIButton * lookBtn;
 @end
 
@@ -22,9 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setUICompoents];
+    [self requestData];
+  
 }
-
+-(NSMutableArray *)dataAry
+{
+    if (!_dataAry) {
+        _dataAry =[NSMutableArray array];
+    }
+    return _dataAry;
+}
 -(void)setUICompoents
 {
     self.lookBtn.hidden=NO;
@@ -52,6 +59,26 @@
     ApplyController * AVC =[ApplyController new];
     AVC.model =self.model;
     [self.navigationController pushViewController:AVC animated:YES];
+}
+
+
+
+-(void)requestData
+{
+    UserModel * model =[[UserManager shareInstance]getUser];
+    [RequestHelp POST:JS_FAMILY_LIST_URL2 parameters:@{@"pageNum":@"1",@"pageRow":@"1",@"id":self.model.id,@"userUserId":model.id} success:^(id result) {
+        MKLog(@"%@",result);
+        [self.dataAry addObjectsFromArray:[NSArray yy_modelArrayWithClass:[FamilyListModel class] json:result[@"list"]]];
+        
+        if (self.dataAry.count)
+        {
+            self.model =self.dataAry[0];
+            [self setUICompoents];
+        }
+     
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 @end
