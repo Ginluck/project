@@ -29,7 +29,7 @@
 
 #define  GETSECURITYCODE_url  @"userApp/GETSECURITYCODE"
 
-
+#define  getImgCode_url  @"userApp/getImgCode"
 #define  GETSECURITY_url  @"userApp/GETSECURITY"
 
 //退出登录

@@ -177,19 +177,28 @@
 -(void)GoLook:(UIButton *)btn
 {
     RZMessageModel *model=self.dataAry[btn.tag-100];
-    if ([model.state isEqualToString:@"1"]&&[self.TypeStr isEqualToString:@"2"]) {
-               JZMessageViewController * fvc =[JZMessageViewController new];
-                fvc.JzId=model.jzId;
-                [self.navigationController pushViewController:fvc animated:YES];
-    }else if ([model.state isEqualToString:@"4"]&&[self.TypeStr isEqualToString:@"1"])
-    {
+    if ([self.TypeStr isEqualToString:@"2"]) {
+        if ([model.state isEqualToString:@"1"]) {
+            JZMessageViewController * fvc =[JZMessageViewController new];
+            fvc.JzId=model.jzId;
+            [self.navigationController pushViewController:fvc animated:YES];
+        }
+        else
+        {
+            RZLookReasonViewController *CPVC=[RZLookReasonViewController new];
+                   CPVC.TypeStr=self.TypeStr;
+                     CPVC.model=model;
+                     [self.navigationController pushViewController:CPVC animated:YES];
+        }
+               
     }
     else
     {
-        RZLookReasonViewController *CPVC=[RZLookReasonViewController new];
+       RZLookReasonViewController *CPVC=[RZLookReasonViewController new];
         CPVC.TypeStr=self.TypeStr;
           CPVC.model=model;
           [self.navigationController pushViewController:CPVC animated:YES];
+       
     }
    
 }

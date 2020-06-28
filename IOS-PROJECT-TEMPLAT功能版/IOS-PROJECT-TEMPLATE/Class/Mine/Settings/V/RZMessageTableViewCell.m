@@ -17,6 +17,22 @@
 -(void)setModel:(RZMessageModel *)model type:(nonnull NSString *)type
 {
     if ([type isEqualToString:@"2"]) {
+        if ([model.state isEqualToString:@"4"]||[model.state isEqualToString:@"6"]) {
+            self.lookBtn.alpha=0;
+            self.cencelBtn.alpha=0;
+                  }else if ([model.state isEqualToString:@"1"]||[model.state isEqualToString:@"2"])
+                  {
+                                           self.cencelBtn.alpha=0;
+                                           self.btnWidth.constant=8;
+                                           [self.lookBtn setNeedsLayout];
+                  }
+                  else
+                  {
+                      self.cencelBtn.alpha=1;
+                      self.lookBtn.alpha=1;
+                      self.btnWidth.constant=66;
+                     [self.lookBtn setNeedsLayout];
+                  }
         self.nameLab.text=[NSString stringWithFormat:@"家族名：%@",model.name];
         switch ([model.state intValue]) {
                case 0:
@@ -61,6 +77,17 @@
     }
     else
     {
+        if ([model.state isEqualToString:@"6"]||[model.state isEqualToString:@"4"]||[model.state isEqualToString:@"1"])
+        {
+            self.lookBtn.alpha=0;
+            self.cencelBtn.alpha=0;
+        }else
+        {
+            self.cencelBtn.alpha=0;
+            self.lookBtn.alpha=1;
+            self.btnWidth.constant=8;
+        [self.lookBtn setNeedsLayout];
+        }
          self.nameLab.text=[NSString stringWithFormat:@"申请人：%@",model.real_name];
         switch ([model.state intValue]) {
             case 0:
@@ -104,36 +131,6 @@
         }
     }
     self.timeLab.text=[NSString stringWithFormat:@"申请时间：%@",model.createTime];
-   
-    if ([type isEqualToString:@"1"]) {
-        if ([model.state isEqualToString:@"6"])
-        {
-            self.lookBtn.alpha=0;
-            self.cencelBtn.alpha=0;
-        }else
-        {
-            self.cencelBtn.alpha=0;
-            self.btnWidth.constant=8;
-        [self.lookBtn setNeedsLayout];
-        }
-       }else
-       {
-           if ([model.state isEqualToString:@"4"]) {
-                self.cencelBtn.alpha=0;
-               self.btnWidth.constant=8;
-               [self.lookBtn setNeedsLayout];
-           }else if ([model.state isEqualToString:@"6"])
-           {
-               self.lookBtn.alpha=0;
-               self.cencelBtn.alpha=0;
-           }
-           else
-           {
-               self.cencelBtn.alpha=1;
-               self.btnWidth.constant=66;
-              [self.lookBtn setNeedsLayout];
-           }
-       }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

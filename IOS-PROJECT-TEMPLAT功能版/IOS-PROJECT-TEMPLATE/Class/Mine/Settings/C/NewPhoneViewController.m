@@ -13,7 +13,7 @@
 #import "NSString+Encryption.h"
 #import "IDSafeViewController.h"
 @interface NewPhoneViewController ()
-
+@property(nonatomic,strong)NSString *ImgStr;
 @end
 
 @implementation NewPhoneViewController
@@ -22,7 +22,12 @@
     [super viewDidLoad];
     [self addNavigationTitleView:@"输入新手机号"];
     [self.PhoneTF addTarget:self action:@selector(phoneNumberTextFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    
+    [RequestHelp POST:getImgCode_url parameters:@{} success:^(id result) {
+             [self.CodeBtn setBackgroundImage:[self stringToImage:result[@"data"]] forState:UIControlStateNormal ];
+           self.ImgStr=result[@"imgCodeKey"];
+         } failure:^(NSError *error) {
+
+         }];
     // Do any additional setup after loading the view from its nib.
 }
 - (void)phoneNumberTextFieldDidChange:(UITextField *)textField{
@@ -31,36 +36,42 @@
     }
 }
 - (IBAction)CodeClick:(JKCountDownButton *)sender {
-    if (![UIUtils isValidateMobile:self.PhoneTF.text]) {
-        ShowMessage(@"请输入正确的手机号");
-        return;
-    }
+    [RequestHelp POST:getImgCode_url parameters:@{} success:^(id result) {
+           [self.CodeBtn setBackgroundImage:[self stringToImage:result[@"data"]] forState:UIControlStateNormal ];
+         self.ImgStr=result[@"imgCodeKey"];
+       } failure:^(NSError *error) {
 
-    WS(weakSelf);
-  
-    
-    NSDictionary *dicParams = @{@"userPhone":self.PhoneTF.text,@"codeType":@"12"};
-    
-    [RequestHelp POST:GETSECURITYCODE_url parameters:dicParams success:^(id result) {
-        weakSelf.CodeBtn.enabled = NO;
-        [weakSelf.CodeBtn startWithSecond:60];
-        [weakSelf.CodeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
-            NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
-            return title;
-        }];
-        [weakSelf.CodeBtn didFinished:^NSString *(JKCountDownButton *countDownButton, int second) {
-            countDownButton.enabled = YES;
-            return @"重新获取";
-        }];
-    } failure:^(NSError *error) {
-        
-    }];
+       }];
+//    if (![UIUtils isValidateMobile:self.PhoneTF.text]) {
+//        ShowMessage(@"请输入正确的手机号");
+//        return;
+//    }
+//
+//    WS(weakSelf);
+//
+//
+//    NSDictionary *dicParams = @{@"userPhone":self.PhoneTF.text,@"codeType":@"12"};
+//
+//    [RequestHelp POST:GETSECURITYCODE_url parameters:dicParams success:^(id result) {
+//        weakSelf.CodeBtn.enabled = NO;
+//        [weakSelf.CodeBtn startWithSecond:60];
+//        [weakSelf.CodeBtn didChange:^NSString *(JKCountDownButton *countDownButton,int second) {
+//            NSString *title = [NSString stringWithFormat:@"剩余%d秒",second];
+//            return title;
+//        }];
+//        [weakSelf.CodeBtn didFinished:^NSString *(JKCountDownButton *countDownButton, int second) {
+//            countDownButton.enabled = YES;
+//            return @"重新获取";
+//        }];
+//    } failure:^(NSError *error) {
+//
+//    }];
     
 }
 - (IBAction)Submit:(id)sender {
     if (self.CodeTF.text.length>0) {
                 UserModel * model =[[UserManager shareInstance]getUser];
-        [RequestHelp POST:registers_url parameters:@{@"userPhone":model.userPhone,@"userId":model.id,@"validCode":self.CodeTF.text} success:^(id result){
+        [RequestHelp POST:registers_url parameters:@{@"userPhone":model.userPhone,@"userId":model.id,@"validCode":self.CodeTF.text,@"imgCodeKey":self.ImgStr} success:^(id result){
                         DLog(@"%@",result);
                          ShowMessage(@"绑定成功");
 //                         for(UIViewController*temp in self.navigationController.viewControllers) {
@@ -90,7 +101,17 @@
    
 
 }
+- (UIImage *)stringToImage:(NSString *)str
 
+{
+
+    NSData * imageData =[[NSData alloc] initWithBase64EncodedString:str options:NSDataBase64DecodingIgnoreUnknownCharacters];
+
+    UIImage *photo = [UIImage imageWithData:imageData ];
+
+    return photo;
+
+}
 /*
 #pragma mark - Navigation
 
