@@ -200,11 +200,15 @@
 {
     if (textField.text.length)
     {
+        [self.mapView removeAnnotations:self.mapView.annotations];
+        [self.dataAry removeAllObjects];
+        [self.nameAry removeAllObjects];
+        
         [RequestHelp POST:JS_FAMILY_LIST_URL2 parameters:@{@"name":textField.text,@"pageNum":@"1",@"pageRow":@"10",@"id":@""} success:^(id result) {
             MKLog(@"%@",result);
             [self.dataAry addObjectsFromArray:[NSArray yy_modelArrayWithClass:[FamilyListModel class] json:result[@"list"]]];
             
-            
+          
             if (self.dataAry.count)
             {
                 for (int i=0; i<self.dataAry.count; i++)

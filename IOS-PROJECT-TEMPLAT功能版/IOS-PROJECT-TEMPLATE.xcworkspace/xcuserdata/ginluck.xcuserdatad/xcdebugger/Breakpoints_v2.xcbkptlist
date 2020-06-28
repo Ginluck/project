@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IOS-PROJECT-TEMPLATE/Class/Order/C/FamilyDescController.m"
-            timestampString = "614681926.548243"
+            filePath = "IOS-PROJECT-TEMPLATE/Class/Mine/C/FirstTypeHomeViewController.m"
+            timestampString = "615017556.963432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-setUICompoents"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-detailClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IOS-PROJECT-TEMPLATE/Class/Order/C/OrderHomeController.m"
-            timestampString = "614675950.49572"
+            filePath = "IOS-PROJECT-TEMPLATE/Class/Mine/C/FirstTypeHomeViewController.m"
+            timestampString = "615017556.963487"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "-textFieldShouldReturn:"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-detailClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +51,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IOS-PROJECT-TEMPLATE/Class/Order/C/FamilyDescController.m"
-            timestampString = "614681926.548344"
+            filePath = "IOS-PROJECT-TEMPLATE/Class/Type/C/FamilyLineController.m"
+            timestampString = "615022104.72911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-requestData"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-resolveData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IOS-PROJECT-TEMPLATE/Class/Type/C/FamilyLineController.m"
+            timestampString = "615022104.730497"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-resolveData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

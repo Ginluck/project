@@ -132,7 +132,7 @@
     {
           [arr addObject:@"发起聊天"];
     }
-    if (member.userUserId.length==0  || member.userUserId ==nil)
+    if ((member.userUserId.length==0  || member.userUserId ==nil)&&! [member.state isEqualToString:@"1"])
     {
           [arr addObject:@"确认自己"];
     }

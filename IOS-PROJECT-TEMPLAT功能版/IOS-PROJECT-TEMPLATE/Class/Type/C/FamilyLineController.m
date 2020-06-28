@@ -44,7 +44,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view addSubview:self.backImage];
-    [self.view addSubview:self.scView];
+//    [self.view addSubview:self.scView];
 
     [self addNavigationTitleView:@"世系图"];
     UIButton * button =[UIButton buttonWithType:UIButtonTypeCustom];
@@ -107,6 +107,9 @@
         self.scView.contentSize=CGSizeMake(max*50+(max+1)*20+30, 0);
 //          self.scView.contentSize=CGSizeMake(Screen_Width*5,0);
     }
+    if (22+(16+50)*self.dataAry.count >Screen_Height-K_NaviHeight) {
+        self.scView.contentSize=CGSizeMake(self.scView.contentSize.width,22+(16+50)*self.dataAry.count+30 );
+    }
     
     //第三步  匹配关系
     for (int i=0; i<self.dataAry.count; i++)
@@ -144,6 +147,9 @@
     //第四步 画矩形 画线
     for (int i=0; i<self.dataAry.count; i++)
     {
+        @autoreleasepool {
+            
+ 
         FamilyTreeModel * model =self.dataAry[i];
         
         for (int k=0; k<model.list.count; k++)
@@ -161,6 +167,7 @@
             {
                 if (model.list.count<5)
                 {
+                      @autoreleasepool {
                     CGFloat margin =(Screen_Width -50*[model.lisCount integerValue])/([model.lisCount integerValue]+1);
                     RectangleView * rec =[[RectangleView alloc]initWithFrame:CGRectMake(margin+(margin+50)*k, 22+(16+50)*i, 50, 15) str:member.name];
                     member.bottom_x =CGRectGetMidX(rec.frame);
@@ -168,21 +175,44 @@
                     
                     [self.scView addSubview:rec];
                     [self drawLine:i parent:member.parentIndex endX:CGRectGetMidX(rec.frame) endY:CGRectGetMinY(rec.frame)];
+                      }
                 }
                 else
                 {
+                      @autoreleasepool {
                     RectangleView * rec =[[RectangleView alloc]initWithFrame:CGRectMake(20+(20+50)*k, 22+(16+50)*i, 50, 15) str:member.name];
                     member.bottom_x =CGRectGetMidX(rec.frame);
                     member.bottom_y =CGRectGetMaxY(rec.frame);
                     [self.scView addSubview:rec];
                          [self drawLine:i parent:member.parentIndex endX:CGRectGetMidX(rec.frame) endY:CGRectGetMinY(rec.frame)];
+                      }
                 }
             }
         }
     }
+    }
+    
+ 
+    UIImageView * imageView =[[UIImageView alloc]initWithImage:   [self makeImageWithView:self.scView withSize:CGSizeMake(Screen_Width, Screen_Height)]];
+    imageView.frame =CGRectMake(0, 0, Screen_Width, Screen_Height);
+    [self.view addSubview:imageView];
+    
 }
 
 
+
+
+- (UIImage *)makeImageWithView:(UIView *)view withSize:(CGSize)size
+{
+    
+    // 下面方法，第一个参数表示区域大小。第二个参数表示是否是非透明的。如果需要显示半透明效果，需要传NO，否则传YES。第三个参数就是屏幕密度了，关键就是第三个参数 [UIScreen mainScreen].scale。
+    UIGraphicsBeginImageContextWithOptions(size, YES, [UIScreen mainScreen].scale);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+    
+}
 
 
 -(void)drawLine:(NSInteger)rowIndex parent:(NSInteger)parentIndex  endX:(CGFloat)endX endY:(CGFloat)endY
@@ -197,7 +227,7 @@
     CGPoint point1 =CGPointMake(member.bottom_x, member.bottom_y);
     CGPoint point2 =CGPointMake(endX, endY);
     
-    _line2 = [[LineView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width*10, Screen_Height) point1:point1 point2:point2] ;
+    _line2 = [[LineView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width*10, Screen_Height*10) point1:point1 point2:point2] ;
     _line2.backgroundColor = [UIColor clearColor];
     
     [self.scView addSubview:_line2];
