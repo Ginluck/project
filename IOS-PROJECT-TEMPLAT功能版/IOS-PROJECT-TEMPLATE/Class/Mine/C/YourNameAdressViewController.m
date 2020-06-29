@@ -114,7 +114,7 @@
                     if ([model isKindOfClass:[QMSReGeoCodePoi class]])
                     {
                         QMSReGeoCodePoi * code =(QMSReGeoCodePoi*)model;
-                       self.AddressLab.text=code.title;
+                       self.AddressLab.text=code.address;
 //                        self.addr =code.title;
 //                        self.lon =[NSString stringWithFormat:@"%f",code.location.longitude];
 //                        self.lat =[NSString stringWithFormat:@"%f",code.location.latitude];
@@ -126,7 +126,7 @@
 //                        [self.detailAddr setTitle:code.title forState:UIControlStateNormal];
 //                        self.lon =[NSString stringWithFormat:@"%f",code.location.longitude];
 //                        self.lat =[NSString stringWithFormat:@"%f",code.location.latitude];
-                        self.AddressLab.text=code.title;
+                        self.AddressLab.text=code.address;
                     }
 //                    self.AddressLab.text=@"河北省石家庄市长安区裕华东路123号";
                   

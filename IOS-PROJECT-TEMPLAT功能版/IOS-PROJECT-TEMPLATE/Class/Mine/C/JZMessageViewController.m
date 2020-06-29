@@ -151,12 +151,15 @@
            
            AddNewMemberController * fvc =[[AddNewMemberController alloc]init];
            fvc.member =member;
+           FamilyListModel* model =[FamilyListModel new];
+           model.id=self.JzId;
+           fvc.model =model;
            fvc.type =@"4";
            [self.navigationController pushViewController:fvc animated:YES];
 
        }
         if ([title isEqualToString:@"确认自己"]) {
-                            NSDictionary * param =@{@"jzId":member.jzId,@"userUserId":user.id,@"zpId":member.id,@"state":@"5"};
+                            NSDictionary * param =@{@"jzId":self.JzId,@"userUserId":user.id,@"zpId":member.id,@"state":@"5"};
                                    [RequestHelp POST:JS_insert_URL parameters:param success:^(id result) {
                                        DLog(@"%@",result);
                                       ShowMessage(@"操作成功");

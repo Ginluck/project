@@ -167,18 +167,21 @@
         if ([title isEqualToString:@"编辑成员信息"]) {
             AddNewMemberController * fvc =[[AddNewMemberController alloc]init];
             fvc.member =member;
+            fvc.model =self.model;
             fvc.type =@"1";
             [self.navigationController pushViewController:fvc animated:YES];
         }
         if ([title isEqualToString:@"添加上一代"]) {
             AddNewMemberController * fvc =[[AddNewMemberController alloc]init];
             fvc.member =member;
+              fvc.model =self.model;
             fvc.type =@"2";
             [self.navigationController pushViewController:fvc animated:YES];
         }
         if ([title isEqualToString:@"添加下一代"]) {
             AddNewMemberController * fvc =[[AddNewMemberController alloc]init];
             fvc.member =member;
+              fvc.model =self.model;
             fvc.type =@"3";
             [self.navigationController pushViewController:fvc animated:YES];
         }

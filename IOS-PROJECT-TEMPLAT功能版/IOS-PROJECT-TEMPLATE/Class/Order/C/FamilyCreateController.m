@@ -284,16 +284,16 @@
         if ([model isKindOfClass:[QMSReGeoCodePoi class]])
         {
             QMSReGeoCodePoi * code =(QMSReGeoCodePoi*)model;
-            [self.detailAddr setTitle:code.title forState:UIControlStateNormal];
-            self.addr =code.title;
+            [self.detailAddr setTitle:code.address forState:UIControlStateNormal];
+            self.addr =code.address;
             self.lon =[NSString stringWithFormat:@"%f",code.location.longitude];
             self.lat =[NSString stringWithFormat:@"%f",code.location.latitude];
         }
         else if ([model isKindOfClass:[QMSSuggestionPoiData class]])
         {
             QMSSuggestionPoiData * code =(QMSSuggestionPoiData*)model;
-            self.addr =code.title;
-            [self.detailAddr setTitle:code.title forState:UIControlStateNormal];
+            self.addr =code.address;
+            [self.detailAddr setTitle:code.address forState:UIControlStateNormal];
             self.lon =[NSString stringWithFormat:@"%f",code.location.longitude];
             self.lat =[NSString stringWithFormat:@"%f",code.location.latitude];
         }
