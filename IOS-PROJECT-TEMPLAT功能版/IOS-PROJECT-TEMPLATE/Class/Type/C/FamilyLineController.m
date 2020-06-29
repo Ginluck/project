@@ -44,7 +44,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.view addSubview:self.backImage];
-    [self.view addSubview:self.scView];
+  [self.view addSubview:self.scView];
 
     [self addNavigationTitleView:@"世系图"];
     UIButton * button =[UIButton buttonWithType:UIButtonTypeCustom];
@@ -147,11 +147,16 @@
     //第四步 画矩形 画线
     for (int i=0; i<self.dataAry.count; i++)
     {
-       
+
+            
+ 
         FamilyTreeModel * model =self.dataAry[i];
         
         for (int k=0; k<model.list.count; k++)
         {
+            @autoreleasepool {
+                
+            
             FamilyTreeMember * member = (FamilyTreeMember *)model.list [k];
             if (model.list.count ==1)
             {
@@ -165,7 +170,7 @@
             {
                 if (model.list.count<5)
                 {
-             
+              
                     CGFloat margin =(Screen_Width -50*[model.lisCount integerValue])/([model.lisCount integerValue]+1);
                     RectangleView * rec =[[RectangleView alloc]initWithFrame:CGRectMake(margin+(margin+50)*k, 22+(16+50)*i, 50, 15) str:member.name];
                     member.bottom_x =CGRectGetMidX(rec.frame);
@@ -173,20 +178,22 @@
                     
                     [self.scView addSubview:rec];
                     [self drawLine:i parent:member.parentIndex endX:CGRectGetMidX(rec.frame) endY:CGRectGetMinY(rec.frame)];
-                      
+                     
                 }
                 else
                 {
-                     
+           
                     RectangleView * rec =[[RectangleView alloc]initWithFrame:CGRectMake(20+(20+50)*k, 22+(16+50)*i, 50, 15) str:member.name];
                     member.bottom_x =CGRectGetMidX(rec.frame);
                     member.bottom_y =CGRectGetMaxY(rec.frame);
                     [self.scView addSubview:rec];
-                    [self drawLine:i parent:member.parentIndex endX:CGRectGetMidX(rec.frame) endY:CGRectGetMinY(rec.frame)];
-                      
+                         [self drawLine:i parent:member.parentIndex endX:CGRectGetMidX(rec.frame) endY:CGRectGetMinY(rec.frame)];
+                     
                 }
             }
         }
+        }
+
     }
     
  
@@ -224,8 +231,9 @@
     CGPoint point1 =CGPointMake(member.bottom_x, member.bottom_y);
     CGPoint point2 =CGPointMake(endX, endY);
     
-    _line2 = [[LineView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width*10, Screen_Height*10) point1:point1 point2:point2] ;
+    _line2 = [[LineView alloc]initWithFrame:CGRectMake(0, 0, Screen_Width*10, Screen_Height*3) point1:point1 point2:point2] ;
     _line2.backgroundColor = [UIColor clearColor];
+    
     [self.scView addSubview:_line2];
     
 }

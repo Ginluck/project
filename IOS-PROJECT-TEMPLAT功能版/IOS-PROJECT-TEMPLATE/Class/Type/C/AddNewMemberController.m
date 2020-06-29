@@ -253,7 +253,7 @@
     if ([self.type isEqualToString:@"1"])
     {
         [param setValue:self.member.id forKey:@"id"];
-        [param setValue:self.member.jzId forKey:@"jzId"];
+        [param setValue:self.model.id forKey:@"jzId"];
         [RequestHelp POST:JS_UPDATE_MEMBER_URL parameters:param success:^(id result) {
             MKLog(@"%@",result);
             ShowMessage(@"操作成功");
@@ -269,7 +269,7 @@
     {
         [param setValue:@"0" forKey:@"type"];
         [param setValue:self.member.id forKey:@"coverId"];
-        [param setValue:self.member.jzId forKey:@"jzId"];
+        [param setValue:self.model.id forKey:@"jzId"];
         [RequestHelp POST:JS_ADD_NEWMEMBER_URL parameters:param success:^(id result) {
             MKLog(@"%@",result);
             ShowMessage(@"操作成功");
@@ -284,7 +284,7 @@
     {
         [param setValue:@"1" forKey:@"type"];
         [param setValue:self.member.id forKey:@"coverId"];
-        [param setValue:self.member.jzId forKey:@"jzId"];
+        [param setValue:self.model.id forKey:@"jzId"];
         [RequestHelp POST:JS_ADD_NEWMEMBER_URL parameters:param success:^(id result) {
             MKLog(@"%@",result);
             ShowMessage(@"操作成功");
@@ -300,7 +300,7 @@
          UserModel *user =[[UserManager shareInstance]getUser];
         [param setValue:@"2" forKey:@"type"];
         [param setValue:self.member.id forKey:@"coverId"];
-        [param setValue:self.member.jzId forKey:@"jzId"];
+        [param setValue:self.model.id forKey:@"jzId"];
         [param setValue:user.id forKey:@"userUserId"];
         [RequestHelp POST:JS_ADD_NEWMEMBER_URL parameters:param success:^(id result) {
             MKLog(@"%@",result);
