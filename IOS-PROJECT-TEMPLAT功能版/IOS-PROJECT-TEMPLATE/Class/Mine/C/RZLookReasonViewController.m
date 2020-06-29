@@ -100,7 +100,7 @@
            }];
     }else if ([self.model.state isEqualToString:@"5"])
     {
-        [RequestHelp POST:update_url parameters:@{@"id":self.model.id,@"state":@"4"} success:^(id result) {
+        [RequestHelp POST:update_url parameters:@{@"id":self.model.id,@"state":@"4",@"qrzj":@"0"} success:^(id result) {
                    ShowMessage(@"操作成功");
                    [self.navigationController popViewControllerAnimated:YES];
                } failure:^(NSError *error) {
